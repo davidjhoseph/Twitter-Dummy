@@ -1,0 +1,22 @@
+.explore {
+    border-left: 1px solid lightgray;
+    border-right: 1px solid lightgray;
+    min-height: 1000px;
+
+    .heading {
+        font-size: 18px;
+        font-weight: bold;
+
+        i {
+            font-size: 30px;
+            color: #1da1f2;
+            cursor: pointer;
+        }
+    }
+
+    .trends {
+        font-size: 20px;
+        font-weight: bold;
+
+    }
+}
