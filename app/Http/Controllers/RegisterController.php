@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Resources\UserResource;
+use Illuminate\Support\Facades\Hash;
+use App\User;
 
 class RegisterController extends Controller
 {
@@ -34,7 +37,19 @@ class RegisterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'name' => ['required', 'min:8'],
+            'email' => ['required', 'min:8', 'unique:users'],
+            'phone' => ['required', 'min:8', 'unique:users'],
+            'password' =>['required', 'min:8']
+
+        ]);
+        $email = User::where('email', $data['email'])->get();
+        
+            $data['password'] = Hash::make($data['password']);
+            User::create($data);
+            return UserResource::collection(User::all());
+
     }
 
     /**

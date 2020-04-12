@@ -22,6 +22,10 @@ window.Vue = require("vue");
 Vue.component("Topnav", require("./components/Topnav.vue").default);
 Vue.component("Authbox", require("./components/Authbox.vue").default);
 Vue.component("Trends", require("./components/Trends.vue").default);
+Vue.component(
+    "registerInput",
+    require("./components/Registerinput.vue").default
+);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
