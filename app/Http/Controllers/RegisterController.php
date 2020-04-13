@@ -14,6 +14,9 @@ class RegisterController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct() {
+        $this->middleware('guest');
+    }
     public function index()
     {
         return view('auth.register');
@@ -48,7 +51,10 @@ class RegisterController extends Controller
         
             $data['password'] = Hash::make($data['password']);
             User::create($data);
-            return UserResource::collection(User::all());
+
+            Auth::loginUsingId();
+            // return UserResource::collection(User::all());
+            return redirect()->intended('dashboard');
 
     }
 

@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class LoginController extends Controller
 {
@@ -19,66 +22,52 @@ class LoginController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function authenticate(Request $request)
     {
-        //
-    }
+    
+        $validate = Validator::make($request->all(), [
+            'username' => 'required',
+            'password' => 'required',
+        ]);
+        if($validate->fails()){
+            return 'failed';
+        }else {
+            $loginuseremail = User::where('email', $request->username)->first();
+            $loginuserphone = User::where('phone', $request->username)->first();
+            $loginusername = User::where('username', $request->username)->first();
+            if($loginuseremail){
+                $request = array_merge($request->all(), [
+                    'email' => $loginuseremail->email
+                ]);
+            }elseif($loginusername){
+                $request = array_merge($request->all(), [
+                    'email' => $loginusername->email
+                ]);
+            }elseif($loginuserphone){
+                $request = array_merge($request->all(), [
+                    'email' => $loginuserphone->email
+                ]);
+            }
+            if($loginuseremail || $loginuserphone || $loginusername){
+                
+                $credentials = [
+                    'email'=> $request['email'],
+                    'password' => $request['password'],
+                ];
+                if (Auth::attempt($credentials)){
+                    // Authentication passed...
+                    $user = Auth::user();
+                    return redirect()->intended('dashboard');
+                }else {
+                    return 'error user';
+                }
+            }else {
+                return 'error';
+            }
+        }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }
+
+    

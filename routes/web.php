@@ -17,5 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('register', 'RegisterController@index');
-Route::get('login', 'LoginController@index');
+Route::get('login', 'LoginController@index')->name('login');
+Route::get('dashboard', function () { 
+    return view('dashboard');
+});
+
 

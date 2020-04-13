@@ -38472,7 +38472,10 @@ var staticRenderFns = [
       _vm._v(" "),
       _c(
         "form",
-        { staticClass: "login", attrs: { action: "/login", method: "POST" } },
+        {
+          staticClass: "login",
+          attrs: { action: "api/login", method: "POST" }
+        },
         [
           _c("div", { staticClass: "param" }, [
             _c("input", {

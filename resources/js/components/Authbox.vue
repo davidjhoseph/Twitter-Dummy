@@ -9,7 +9,7 @@
     </div>
     <div class="banner-text">See what’s happening in the world right now</div>
 
-    <form action="/login" class="login" method="POST">
+    <form action="api/login" class="login" method="POST">
       <div class="param">
         <input type="text" id="username" name="username" />
         <label for="username">Phone, email or username</label>
