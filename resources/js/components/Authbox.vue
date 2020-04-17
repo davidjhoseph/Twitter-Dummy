@@ -69,10 +69,12 @@ export default {};
     }
     .btn-outline {
       border: 1px solid #1da1f2;
+      background-color: white;
       color: #1da1f2;
       padding: 5px 0;
       &:hover {
         background-color: lightgray;
+        color: #1da1f2;
       }
     }
     .param {

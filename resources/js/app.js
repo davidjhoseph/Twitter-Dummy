@@ -71,6 +71,14 @@ const Tweep = Vue.component(
     "Tweep",
     require("./components/profile/Tweep.vue").default
 );
+const Media = Vue.component(
+    "Media",
+    require("./components/profile/Media.vue").default
+);
+const Likes = Vue.component(
+    "Likes",
+    require("./components/profile/Likes.vue").default
+);
 
 import VueRouter from "vue-router";
 
@@ -126,6 +134,16 @@ const routes = [
                 path: "tweep",
                 component: Tweep,
                 name: "t&p"
+            },
+            {
+                path: "media",
+                component: Media,
+                name: "media"
+            },
+            {
+                path: "likes",
+                component: Likes,
+                name: "likes"
             }
         ]
     },

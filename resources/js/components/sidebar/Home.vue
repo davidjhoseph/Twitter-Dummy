@@ -2,7 +2,6 @@
   <div class="home">
     <div class="heading border-bottom">Home</div>
     <div class="pt-5"></div>
-    <div class></div>
     <div v-for="tweet in tweets" :key="tweet.id" class="tweetBox border-bottom">
       <div class="row">
         <div class="col-md-2">
