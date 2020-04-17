@@ -18,7 +18,7 @@
                         <register-input  idInput="phone" name="phone"  title="Phone Number" type="number"></register-input>
                         <register-input  idinput="pass" name="password"  title="Password" type="password" ></register-input>
                         <div class="text-center">
-                            <button type="submit" class="btn btn-primary">Signup</button>
+                            <button type="submit" class="btn btn-primary">Sign up</button>
                         </div>
                     </form>
                 </div>

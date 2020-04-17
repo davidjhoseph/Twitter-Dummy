@@ -1,0 +1,17 @@
+.login {
+    height: 100vh;
+
+    .login-box {
+        padding: 20px;
+        width: 500px;
+        min-height: 600px;
+        box-shadow: 10px 10px 100px 10px rgba(0, 0, 0, .6);
+        transform: translate(50%, 20%);
+        border-radius: 20px;
+
+        .heading {
+            font-size: 20px;
+            font-weight: bold;
+        }
+    }
+}

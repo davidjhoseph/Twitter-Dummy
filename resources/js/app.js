@@ -26,6 +26,119 @@ Vue.component(
     "registerInput",
     require("./components/Registerinput.vue").default
 );
+Vue.component("dashboard", require("./components/Dashboard.vue").default);
+
+// Sidebar Router-view Components
+const Home = Vue.component(
+    "Home",
+    require("./components/sidebar/Home.vue").default
+);
+const Profile = Vue.component(
+    "Profile",
+    require("./components/sidebar/Profile.vue").default
+);
+const Explore = Vue.component(
+    "Explore",
+    require("./components/sidebar/Explore.vue").default
+);
+const Notification = Vue.component(
+    "Notification",
+    require("./components/sidebar/Notification.vue").default
+);
+const Messages = Vue.component(
+    "Messages",
+    require("./components/sidebar/Messages.vue").default
+);
+const Bookmark = Vue.component(
+    "Bookmark",
+    require("./components/sidebar/Bookmark.vue").default
+);
+const List = Vue.component(
+    "List",
+    require("./components/sidebar/List.vue").default
+);
+const More = Vue.component(
+    "More",
+    require("./components/sidebar/More.vue").default
+);
+
+//Profile Router-view Components
+const Tweets = Vue.component(
+    "Tweets",
+    require("./components/profile/Tweets.vue").default
+);
+const Tweep = Vue.component(
+    "Tweep",
+    require("./components/profile/Tweep.vue").default
+);
+
+import VueRouter from "vue-router";
+
+Vue.use(VueRouter);
+const routes = [
+    //sidebar routes
+    {
+        path: "/home",
+        component: Home,
+        name: "home"
+    },
+    {
+        path: "/explore",
+        component: Explore,
+        name: "explore"
+    },
+    {
+        path: "/notification",
+        component: Notification,
+        name: "notification"
+    },
+    {
+        path: "/messages",
+        component: Messages,
+        name: "messages"
+    },
+    {
+        path: "/bookmark",
+        component: Bookmark,
+        name: "bookmark"
+    },
+    {
+        path: "/list",
+        component: List,
+        name: "list"
+    },
+    {
+        path: "/more",
+        component: More,
+        name: "more"
+    },
+    {
+        path: "/profile",
+        component: Profile,
+        name: "profile",
+        children: [
+            {
+                path: "",
+                component: Tweets,
+                name: "tweets"
+            },
+            {
+                path: "tweep",
+                component: Tweep,
+                name: "t&p"
+            }
+        ]
+    },
+    {
+        path: "/dashboard",
+        component: Home
+        // name: "home"
+    }
+];
+const router = new VueRouter({
+    mode: "history",
+    routes // short for `routes: routes`
+});
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -33,5 +146,6 @@ Vue.component(
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 const app = new Vue({
-    el: "#app"
+    el: "#app",
+    router
 });

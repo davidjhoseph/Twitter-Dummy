@@ -20,4 +20,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('register', 'RegisterController@store');
 Route::post('login', 'LoginController@authenticate');
+Route::get('tweets', 'TweetController@index');
+Route::get('profile', 'ProfileController@index');
+
+
+
 

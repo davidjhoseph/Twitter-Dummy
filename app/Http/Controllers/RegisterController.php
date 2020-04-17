@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\{User, Profile};
 use Illuminate\Http\Request;
 use App\Http\Resources\UserResource;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use App\User;
 
 class RegisterController extends Controller
 {
@@ -22,15 +23,6 @@ class RegisterController extends Controller
         return view('auth.register');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -47,59 +39,27 @@ class RegisterController extends Controller
             'password' =>['required', 'min:8']
 
         ]);
-        $email = User::where('email', $data['email'])->get();
+        // $email = User::where('email', $data['email'])->get();
         
             $data['password'] = Hash::make($data['password']);
-            User::create($data);
+            $user = User::create($data);
+            $user->profile()->create();
+            
+            //Not Working as expected
+            $credentials = [
+                'email'=> $data['email'],
+                'password' => $data['password'],
+            ];
+            if (Auth::attempt($credentials)){
+                // Authentication passed...
+                return view('dashboard');
+            }else {
+                return 'Please try again';
+            }
 
-            Auth::loginUsingId();
+            // Auth::loginUsingId();
             // return UserResource::collection(User::all());
-            return redirect()->intended('dashboard');
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

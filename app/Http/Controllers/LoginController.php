@@ -49,24 +49,26 @@ class LoginController extends Controller
                     'email' => $loginuserphone->email
                 ]);
             }
+            // Not working as expected
             if($loginuseremail || $loginuserphone || $loginusername){
-                
                 $credentials = [
                     'email'=> $request['email'],
                     'password' => $request['password'],
                 ];
                 if (Auth::attempt($credentials)){
                     // Authentication passed...
-                    $user = Auth::user();
-                    return redirect()->intended('dashboard');
+                    return view('dashboard');
                 }else {
-                    return 'error user';
+                    return 'User not found';
                 }
             }else {
-                return 'error';
+                return 'Are you sure you have signed up?';
             }
         }
 
+    }
+    public function dashboard() {
+        return view('dashboard');
     }
 }
 

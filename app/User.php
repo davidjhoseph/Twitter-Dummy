@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\{Tweets, Profile};
 
 class User extends Authenticatable
 {
@@ -25,6 +26,13 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function tweets() {
+        return $this->hasMany(Tweets::class);
+    }
+    public function profile() {
+        return $this->hasOne(Profile::class);
+    }
 
     /**
      * The attributes that should be cast to native types.
