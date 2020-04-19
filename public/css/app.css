@@ -22,6 +22,75 @@
   font-weight: bold;
 }
 
+.profileedit {
+  height: 100vh;
+}
+
+.profileedit .profile-box {
+  padding: 20px;
+  width: 500px;
+  height: 600px;
+  box-shadow: 10px 10px 100px 10px rgba(0, 0, 0, 0.6);
+  transform: translate(50%, 20%);
+  border-radius: 20px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.profileedit .profile-box .heading {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.profileedit .profile-box .headerimg {
+  height: 200px;
+  background-color: gray;
+  position: relative;
+  margin-bottom: 90px;
+}
+
+.profileedit .profile-box .headerimg .hideInput {
+  display: none;
+}
+
+.profileedit .profile-box .headerimg .headerpicLabel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: white;
+}
+
+.profileedit .profile-box .headerimg img {
+  width: 100%;
+  height: 100%;
+}
+
+.profileedit .profile-box .headerimg .profileimg {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  position: absolute;
+  bottom: -35%;
+  left: 10px;
+}
+
+.profileedit .profile-box .headerimg .profileimg .profilepicLabel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: white;
+}
+
+.profileedit .profile-box .headerimg .profileimg img {
+  width: 95%;
+  height: 95%;
+  border-radius: 50%;
+}
+
 .register {
   height: 100vh;
 }

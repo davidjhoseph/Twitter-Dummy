@@ -5,13 +5,10 @@
       :id="idinput"
       :name="name"
       v-model="text"
-      :placeholder="title"
-      :value="value"
       :style="{'border-bottom':text.length>0?'2px solid #1da1f2':''}"
     />
-    <label :for="idinput" :style="{'color':text.length>0?'#1da1f2':''}">{{ title }}</label>
-    <div v-if="namefield" class="labelBelow">
-      <div :style="{'color':text.length>0?'#1da1f2':''}" class="textBelow">What's your name?</div>
+    <label :for="idinput" :style="{'color':text.length>0?'#1da1f2':''}">{{ label }}</label>
+    <div class="labelBelow">
       <div class="length">{{text.length}}/50</div>
     </div>
   </div>
@@ -25,9 +22,8 @@ export default {
     };
   },
   props: {
-    namefield: {
-      type: Boolean,
-      default: false
+    data: {
+      type: String
     },
     idinput: {
       type: String,
@@ -37,18 +33,17 @@ export default {
       type: String,
       required: true
     },
-    title: {
-      type: String,
-      required: true
-    },
     type: {
       type: String,
       default: "text"
     },
-    value: {
+    label: {
       type: String,
-      default: ""
+      required: true
     }
+    // value: {
+    //   type: String
+    // }
   }
 };
 </script>
@@ -82,16 +77,16 @@ export default {
     width: 100%;
     border: none;
     border-bottom: 2px solid gray;
-    background-color: inherit;
+    background-color: transparent;
     height: 30px;
     position: absolute;
     bottom: 0;
     &:focus {
       outline: none;
-      border-bottom: 2px solid red;
+      border-bottom: 2px solid #1da1f2;
     }
     &:focus + label {
-      color: red;
+      color: #1da1f2;
     }
   }
   .labelBelow {
@@ -104,11 +99,6 @@ export default {
       position: absolute;
       right: 10px;
       color: gray;
-    }
-    .textBelow {
-      position: absolute;
-      left: 10px;
-      font-size: 14px;
     }
   }
   //   .success {

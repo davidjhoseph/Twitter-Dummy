@@ -19,5 +19,7 @@ Route::get('/', function () {
 Route::get('register', 'RegisterController@index');
 Route::get('login', 'LoginController@index');
 Route::get('dashboard', 'LoginController@dashboard');
+Route::get('profile/edit', 'ProfileController@edit');
+
 
 

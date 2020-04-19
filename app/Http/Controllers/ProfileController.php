@@ -16,4 +16,9 @@ class ProfileController extends Controller
             
 
     }
+    public function edit() {
+        $user = User::find(11);
+        $profile = User::find(11)->profile;
+        return view('editprofile', compact('user','profile'));
+    }
 }

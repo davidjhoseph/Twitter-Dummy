@@ -24,7 +24,11 @@ Vue.component("Authbox", require("./components/Authbox.vue").default);
 Vue.component("Trends", require("./components/Trends.vue").default);
 Vue.component(
     "registerInput",
-    require("./components/Registerinput.vue").default
+    require("./components/partials/Registerinput.vue").default
+);
+Vue.component(
+    "profileInput",
+    require("./components/partials/ProfileInput.vue").default
 );
 Vue.component("dashboard", require("./components/Dashboard.vue").default);
 

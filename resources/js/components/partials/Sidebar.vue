@@ -132,7 +132,7 @@
       </div>
     </router-link>
     <div class="text-center mt-3">
-      <button>Tweet</button>
+      <button class="tweetButton">Tweet</button>
     </div>
   </div>
 </template>
@@ -155,7 +155,7 @@ export default {
 <style lang="scss">
 .holder {
   width: 100%;
-  button {
+  .tweetButton {
     margin: 0 auto;
     width: 250px;
     // height: 40px;

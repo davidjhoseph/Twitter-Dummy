@@ -6,6 +6,9 @@
         <img src="../../images/8.jpg" alt="profilepic" />
       </div>
     </div>
+    <div class="text-right mt-4 mr-3">
+      <a href="profile/edit" class="editprofile">Edit Profile</a>
+    </div>
     <div class="details">
       <div class="name">{{user.name}}</div>
       <div class="username">@{{user.username}}</div>
@@ -94,11 +97,22 @@ export default {
   .header {
     padding: 15px 50px;
   }
+  .editprofile {
+    padding: 15px 25px;
+    text-decoration: none;
+    border: 1px solid #1da1f2;
+    border-radius: 30px;
+    background-color: white;
+    color: #1da1f2;
+    font-weight: bold;
+    &:hover {
+      background-color: #cbecff;
+    }
+  }
   .headerimg {
     height: 200px;
     background-color: gray;
     position: relative;
-    margin-bottom: 70px;
     background-size: cover;
   }
   .profileimg {
@@ -120,6 +134,7 @@ export default {
   }
   .details {
     padding: 0 20px;
+    margin-top: 70px;
     .name {
       font-size: 20px;
       font-weight: bold;
