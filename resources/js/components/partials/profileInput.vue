@@ -5,11 +5,14 @@
       :id="idinput"
       :name="name"
       v-model="text"
-      :style="{'border-bottom':text.length>0?'2px solid #1da1f2':''}"
+      :placeholder="placeholder"
+      :style="{
+                'border-bottom': text.length > 0 ? '2px solid #1da1f2' : ''
+            }"
     />
-    <label :for="idinput" :style="{'color':text.length>0?'#1da1f2':''}">{{ label }}</label>
-    <div class="labelBelow">
-      <div class="length">{{text.length}}/50</div>
+    <label :for="idinput" :style="{ color: text.length > 0 ? '#1da1f2' : '' }">{{ label }}</label>
+    <div v-if="!date" class="labelBelow">
+      <div class="length">{{ text.length }}/{{ number }}</div>
     </div>
   </div>
 </template>
@@ -18,10 +21,21 @@
 export default {
   data() {
     return {
-      text: ""
+      text: this.data
     };
   },
   props: {
+    date: {
+      type: Boolean,
+      default: false
+    },
+    placeholder: {
+      type: String
+    },
+    number: {
+      type: String,
+      default: "50"
+    },
     data: {
       type: String
     },

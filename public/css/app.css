@@ -58,6 +58,7 @@
   top: 50%;
   left: 50%;
   color: white;
+  cursor: pointer;
 }
 
 .profileedit .profile-box .headerimg img {
@@ -83,6 +84,7 @@
   top: 50%;
   left: 50%;
   color: white;
+  cursor: pointer;
 }
 
 .profileedit .profile-box .headerimg .profileimg img {

@@ -11,24 +11,24 @@
                     <div class="heading mb-4">
                         Edit Profile
                     </div>
-                    <form action="api/profile/update" method="POST">
+                    <form action="update" method="POST">
                         @csrf
                         @method('patch')
                         <div class="headerimg">
-                            <label for="headerPic" class="headerpicLabel">PP</label>
+                            <label for="headerPic" class="headerpicLabel"><i class="fa fa-camera"></i></label>
                             <input type="file" id="headerPic" class="hideInput">
                             <img src="../../images/10.jpg" alt="">
                             <div class="profileimg">
-                                <label for="profilePic" class="profilepicLabel">PP</label>
+                                <label for="profilePic" class="profilepicLabel"><i class="fa fa-camera"></i></label>
                                 <input type="file" id="profilePic" class="hideInput">
                                 <img src="../../images/8.jpg" alt="profilepic" />
                             </div>
                         </div>
-                        <profile-input idinput="name" name="name" label="Name"></profile-input>
-                        <profile-input idinput="bio" name="bio" label="Bio"></profile-input>
-                        <profile-input idinput="location" name="location" label="Location"></profile-input>
-                        <profile-input idinput="website" name="website" label="Website"></profile-input>
-                        <profile-input idinput="dob" name="dob" label="Birth date" type="date"></profile-input>
+                        <profile-input idinput="name" name="name" label="Name" data="{{ $user->name }}"></profile-input>
+                        <profile-input idinput="bio" name="bio" label="Bio" number="160" data="{{ $profile->caption }}"></profile-input>
+                        <profile-input idinput="location" name="location" label="Location" number="30" data="{{ $profile->location }}"></profile-input>
+                        <profile-input idinput="website" name="website" label="Website" number="100" placeholder="Add your website" data=""></profile-input>
+                        <profile-input idinput="dob" name="dob" label="Birth date" type="date" date data=""></profile-input>
 
                         
 

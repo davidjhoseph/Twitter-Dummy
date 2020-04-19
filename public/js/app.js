@@ -2162,13 +2162,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      text: ""
+      text: this.data
     };
   },
   props: {
+    date: {
+      type: Boolean,
+      "default": false
+    },
+    placeholder: {
+      type: String
+    },
+    number: {
+      type: String,
+      "default": "50"
+    },
     data: {
       type: String
     },
@@ -39572,7 +39586,12 @@ var render = function() {
           style: {
             "border-bottom": _vm.text.length > 0 ? "2px solid #1da1f2" : ""
           },
-          attrs: { id: _vm.idinput, name: _vm.name, type: "checkbox" },
+          attrs: {
+            id: _vm.idinput,
+            name: _vm.name,
+            placeholder: _vm.placeholder,
+            type: "checkbox"
+          },
           domProps: {
             checked: Array.isArray(_vm.text)
               ? _vm._i(_vm.text, null) > -1
@@ -39611,7 +39630,12 @@ var render = function() {
           style: {
             "border-bottom": _vm.text.length > 0 ? "2px solid #1da1f2" : ""
           },
-          attrs: { id: _vm.idinput, name: _vm.name, type: "radio" },
+          attrs: {
+            id: _vm.idinput,
+            name: _vm.name,
+            placeholder: _vm.placeholder,
+            type: "radio"
+          },
           domProps: { checked: _vm._q(_vm.text, null) },
           on: {
             change: function($event) {
@@ -39631,7 +39655,12 @@ var render = function() {
           style: {
             "border-bottom": _vm.text.length > 0 ? "2px solid #1da1f2" : ""
           },
-          attrs: { id: _vm.idinput, name: _vm.name, type: _vm.type },
+          attrs: {
+            id: _vm.idinput,
+            name: _vm.name,
+            placeholder: _vm.placeholder,
+            type: _vm.type
+          },
           domProps: { value: _vm.text },
           on: {
             input: function($event) {
@@ -39652,11 +39681,13 @@ var render = function() {
       [_vm._v(_vm._s(_vm.label))]
     ),
     _vm._v(" "),
-    _c("div", { staticClass: "labelBelow" }, [
-      _c("div", { staticClass: "length" }, [
-        _vm._v(_vm._s(_vm.text.length) + "/50")
-      ])
-    ])
+    !_vm.date
+      ? _c("div", { staticClass: "labelBelow" }, [
+          _c("div", { staticClass: "length" }, [
+            _vm._v(_vm._s(_vm.text.length) + "/" + _vm._s(_vm.number))
+          ])
+        ])
+      : _vm._e()
   ])
 }
 var staticRenderFns = []
