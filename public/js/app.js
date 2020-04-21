@@ -2736,6 +2736,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     activeTab: function activeTab(tab) {
       this.tab = tab;
+    },
+    linking: function linking(url) {
+      return "http://localhost:8000/storage/" + url;
     }
   }
 });
@@ -7380,7 +7383,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".param[data-v-181ee93a] {\n  background-color: #ecebeb;\n  position: relative;\n  height: 60px;\n  margin-bottom: 30px;\n}\n.param label[data-v-181ee93a] {\n  margin-bottom: 0;\n  position: absolute;\n  font-weight: bold;\n  padding-left: 5px;\n  top: 0;\n}\n.param input[data-v-181ee93a]::-webkit-outer-spin-button,\n.param input[data-v-181ee93a]::-webkit-inner-spin-button {\n  -webkit-appearance: none;\n  margin: 0;\n}\n.param input[data-v-181ee93a] {\n  margin: 0;\n  font-size: 20px;\n  padding-left: 5px;\n  display: block;\n  width: 100%;\n  border: none;\n  border-bottom: 2px solid gray;\n  background-color: transparent;\n  height: 30px;\n  position: absolute;\n  bottom: 0;\n}\n.param input[data-v-181ee93a]:focus {\n  outline: none;\n  border-bottom: 2px solid #1da1f2;\n}\n.param input:focus + label[data-v-181ee93a] {\n  color: #1da1f2;\n}\n.param .labelBelow[data-v-181ee93a] {\n  position: absolute;\n  bottom: 0;\n  width: 100%;\n  font-size: 18px;\n}\n.param .labelBelow .length[data-v-181ee93a] {\n  position: absolute;\n  right: 10px;\n  color: gray;\n}", ""]);
+exports.push([module.i, ".param[data-v-181ee93a] {\n  background-color: #cbecff;\n  position: relative;\n  height: 60px;\n  margin-bottom: 30px;\n}\n.param label[data-v-181ee93a] {\n  margin-bottom: 0;\n  position: absolute;\n  font-weight: bold;\n  padding-left: 5px;\n  top: 0;\n}\n.param input[data-v-181ee93a]::-webkit-outer-spin-button,\n.param input[data-v-181ee93a]::-webkit-inner-spin-button {\n  -webkit-appearance: none;\n  margin: 0;\n}\n.param input[data-v-181ee93a] {\n  margin: 0;\n  font-size: 20px;\n  padding-left: 5px;\n  display: block;\n  width: 100%;\n  border: none;\n  border-bottom: 2px solid gray;\n  background-color: transparent;\n  height: 30px;\n  position: absolute;\n  bottom: 0;\n}\n.param input[data-v-181ee93a]:focus {\n  outline: none;\n  border-bottom: 2px solid #1da1f2;\n}\n.param input:focus + label[data-v-181ee93a] {\n  color: #1da1f2;\n}\n.param .labelBelow[data-v-181ee93a] {\n  position: absolute;\n  bottom: 0;\n  width: 100%;\n  font-size: 18px;\n}\n.param .labelBelow .length[data-v-181ee93a] {\n  position: absolute;\n  right: 10px;\n  color: gray;\n}", ""]);
 
 // exports
 
@@ -7399,7 +7402,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".param[data-v-f7e05c96] {\n  background-color: #ecebeb;\n  position: relative;\n  height: 60px;\n  margin-bottom: 30px;\n}\n.param label[data-v-f7e05c96] {\n  margin-bottom: 0;\n  position: absolute;\n  font-weight: bold;\n  padding-left: 5px;\n  top: 0;\n}\n.param input[data-v-f7e05c96]::-webkit-outer-spin-button,\n.param input[data-v-f7e05c96]::-webkit-inner-spin-button {\n  -webkit-appearance: none;\n  margin: 0;\n}\n.param input[data-v-f7e05c96] {\n  margin: 0;\n  font-size: 20px;\n  padding-left: 5px;\n  display: block;\n  width: 100%;\n  border: none;\n  border-bottom: 2px solid gray;\n  background-color: inherit;\n  height: 30px;\n  position: absolute;\n  bottom: 0;\n}\n.param input[data-v-f7e05c96]:focus {\n  outline: none;\n  border-bottom: 2px solid red;\n}\n.param input:focus + label[data-v-f7e05c96] {\n  color: red;\n}\n.param .labelBelow[data-v-f7e05c96] {\n  position: absolute;\n  bottom: 0;\n  width: 100%;\n  font-size: 18px;\n}\n.param .labelBelow .length[data-v-f7e05c96] {\n  position: absolute;\n  right: 10px;\n  color: gray;\n}\n.param .labelBelow .textBelow[data-v-f7e05c96] {\n  position: absolute;\n  left: 10px;\n  font-size: 14px;\n}", ""]);
+exports.push([module.i, ".param[data-v-f7e05c96] {\n  background-color: #cbecff;\n  position: relative;\n  height: 60px;\n  margin-bottom: 30px;\n}\n.param label[data-v-f7e05c96] {\n  margin-bottom: 0;\n  position: absolute;\n  font-weight: bold;\n  padding-left: 5px;\n  top: 0;\n}\n.param input[data-v-f7e05c96]::-webkit-outer-spin-button,\n.param input[data-v-f7e05c96]::-webkit-inner-spin-button {\n  -webkit-appearance: none;\n  margin: 0;\n}\n.param input[data-v-f7e05c96] {\n  margin: 0;\n  font-size: 20px;\n  padding-left: 5px;\n  display: block;\n  width: 100%;\n  border: none;\n  border-bottom: 2px solid gray;\n  background-color: inherit;\n  height: 30px;\n  position: absolute;\n  bottom: 0;\n}\n.param input[data-v-f7e05c96]:focus {\n  outline: none;\n  border-bottom: 2px solid red;\n}\n.param input:focus + label[data-v-f7e05c96] {\n  color: red;\n}\n.param .labelBelow[data-v-f7e05c96] {\n  position: absolute;\n  bottom: 0;\n  width: 100%;\n  font-size: 18px;\n}\n.param .labelBelow .length[data-v-f7e05c96] {\n  position: absolute;\n  right: 10px;\n  color: gray;\n}\n.param .labelBelow .textBelow[data-v-f7e05c96] {\n  position: absolute;\n  left: 10px;\n  font-size: 14px;\n}", ""]);
 
 // exports
 
@@ -7494,7 +7497,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".profile[data-v-1bf2914a] {\n  width: 100%;\n  border-right: 1px solid lightgray;\n  border-left: 1px solid lightgray;\n}\n.profile .header[data-v-1bf2914a] {\n  padding: 15px 50px;\n}\n.profile .editprofile[data-v-1bf2914a] {\n  padding: 15px 25px;\n  text-decoration: none;\n  border: 1px solid #1da1f2;\n  border-radius: 30px;\n  background-color: white;\n  color: #1da1f2;\n  font-weight: bold;\n}\n.profile .editprofile[data-v-1bf2914a]:hover {\n  background-color: #cbecff;\n}\n.profile .headerimg[data-v-1bf2914a] {\n  height: 200px;\n  background-color: gray;\n  position: relative;\n  background-size: cover;\n}\n.profile .profileimg[data-v-1bf2914a] {\n  width: 150px;\n  height: 150px;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background-color: white;\n  position: absolute;\n  bottom: -35%;\n  left: 10px;\n}\n.profile .profileimg img[data-v-1bf2914a] {\n  width: 95%;\n  height: 95%;\n  border-radius: 50%;\n}\n.profile .details[data-v-1bf2914a] {\n  padding: 0 20px;\n  margin-top: 70px;\n}\n.profile .details .name[data-v-1bf2914a] {\n  font-size: 20px;\n  font-weight: bold;\n}\n.profile .details .username[data-v-1bf2914a] {\n  font-size: 18px;\n  color: gray;\n  line-height: 16px;\n}\n.profile .details .caption[data-v-1bf2914a] {\n  font-size: 18px;\n  color: black;\n}\n.profile .details .otherDetails[data-v-1bf2914a] {\n  color: gray;\n}\n.profile .details .followers[data-v-1bf2914a] {\n  color: gray;\n}\n.profile .details .followers .foll[data-v-1bf2914a] {\n  margin-right: 20px;\n}\n.profile .details .followers .foll .numberFol[data-v-1bf2914a] {\n  color: black;\n  font-weight: bolder;\n}\n.profile .tabs[data-v-1bf2914a] {\n  display: flex;\n  width: 100%;\n}\n.profile .tabs .active[data-v-1bf2914a] {\n  border-bottom: 2px solid #1da1f2;\n}\n.profile .tabs .tab[data-v-1bf2914a] {\n  padding: 15px 0;\n  width: 23%;\n  color: #1da1f2;\n  background-color: white;\n  text-align: center;\n}\n.profile .tabs .tab[data-v-1bf2914a]:hover {\n  background-color: #d2e4f0;\n}\n.profile .tabs .tabBig[data-v-1bf2914a] {\n  width: 31%;\n}", ""]);
+exports.push([module.i, ".profile[data-v-1bf2914a] {\n  width: 100%;\n  border-right: 1px solid lightgray;\n  border-left: 1px solid lightgray;\n}\n.profile .header[data-v-1bf2914a] {\n  padding: 15px 50px;\n}\n.profile .editprofile[data-v-1bf2914a] {\n  padding: 15px 25px;\n  text-decoration: none;\n  border: 1px solid #1da1f2;\n  border-radius: 30px;\n  background-color: white;\n  color: #1da1f2;\n  font-weight: bold;\n}\n.profile .editprofile[data-v-1bf2914a]:hover {\n  background-color: #cbecff;\n}\n.profile .headerimg[data-v-1bf2914a] {\n  height: 200px;\n  background-color: gray;\n  position: relative;\n  background-size: cover;\n  background-position: center;\n}\n.profile .profileimg[data-v-1bf2914a] {\n  width: 150px;\n  height: 150px;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background-color: white;\n  position: absolute;\n  bottom: -35%;\n  left: 10px;\n}\n.profile .profileimg img[data-v-1bf2914a] {\n  width: 95%;\n  height: 95%;\n  border-radius: 50%;\n}\n.profile .details[data-v-1bf2914a] {\n  padding: 0 20px;\n  margin-top: 70px;\n}\n.profile .details .name[data-v-1bf2914a] {\n  font-size: 20px;\n  font-weight: bold;\n}\n.profile .details .username[data-v-1bf2914a] {\n  font-size: 18px;\n  color: gray;\n  line-height: 16px;\n}\n.profile .details .caption[data-v-1bf2914a] {\n  font-size: 18px;\n  color: black;\n}\n.profile .details .otherDetails[data-v-1bf2914a] {\n  color: gray;\n}\n.profile .details .followers[data-v-1bf2914a] {\n  color: gray;\n}\n.profile .details .followers .foll[data-v-1bf2914a] {\n  margin-right: 20px;\n}\n.profile .details .followers .foll .numberFol[data-v-1bf2914a] {\n  color: black;\n  font-weight: bolder;\n}\n.profile .tabs[data-v-1bf2914a] {\n  display: flex;\n  width: 100%;\n}\n.profile .tabs .active[data-v-1bf2914a] {\n  border-bottom: 2px solid #1da1f2;\n}\n.profile .tabs .tab[data-v-1bf2914a] {\n  padding: 15px 0;\n  width: 23%;\n  color: #1da1f2;\n  background-color: white;\n  text-align: center;\n}\n.profile .tabs .tab[data-v-1bf2914a]:hover {\n  background-color: #d2e4f0;\n}\n.profile .tabs .tabBig[data-v-1bf2914a] {\n  width: 31%;\n}", ""]);
 
 // exports
 
@@ -40410,12 +40413,23 @@ var render = function() {
       "div",
       {
         staticClass: "headerimg",
-        style: { "background-image": "url(../../images/10.jpg)" }
+        style: {
+          "background-image": "url(" + _vm.linking(_vm.profile.headerImg) + ")"
+        }
       },
-      [_vm._m(0)]
+      [
+        _c("div", { staticClass: "profileimg" }, [
+          _c("img", {
+            attrs: {
+              src: _vm.linking(_vm.profile.profileImg),
+              alt: "profilepic"
+            }
+          })
+        ])
+      ]
     ),
     _vm._v(" "),
-    _vm._m(1),
+    _vm._m(0),
     _vm._v(" "),
     _c("div", { staticClass: "details" }, [
       _c("div", { staticClass: "name" }, [_vm._v(_vm._s(_vm.user.name))]),
@@ -40451,7 +40465,7 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _vm._m(2)
+      _vm._m(1)
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "tabs" }, [
@@ -40536,16 +40550,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "profileimg" }, [
-      _c("img", {
-        attrs: { src: __webpack_require__(/*! ../../images/8.jpg */ "./resources/js/images/8.jpg"), alt: "profilepic" }
-      })
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -57312,17 +57316,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Profile_vue_vue_type_template_id_1bf2914a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
-
-/***/ }),
-
-/***/ "./resources/js/images/8.jpg":
-/*!***********************************!*\
-  !*** ./resources/js/images/8.jpg ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/8.jpg?5d862b49a48e0bfc02bf04834e869152";
 
 /***/ }),
 

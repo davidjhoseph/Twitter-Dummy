@@ -50,7 +50,7 @@ export default {
 
 <style lang="scss" scoped>
 .param {
-  background-color: #ecebeb;
+  background-color: #cbecff;
   position: relative;
   height: 60px;
   margin-bottom: 30px;

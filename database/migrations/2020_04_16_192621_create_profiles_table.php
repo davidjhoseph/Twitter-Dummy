@@ -20,6 +20,7 @@ class CreateProfilesTable extends Migration
             $table->string('profileImg')->nullable();
             $table->string('headerImg')->nullable();
             $table->string('location')->nullable();
+            $table->string('website')->nullable();
             $table->datetime('dob')->nullable();
             $table->datetime('date_joined')->nullable();
             $table->timestamps();

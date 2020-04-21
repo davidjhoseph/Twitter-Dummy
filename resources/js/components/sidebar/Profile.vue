@@ -1,9 +1,9 @@
 <template>
   <div class="profile">
     <div class="header">{{user.name}}</div>
-    <div class="headerimg" :style="{'background-image':'url(../../images/10.jpg)'}">
+    <div class="headerimg" :style="{'background-image':`url(${linking(profile.headerImg)})`}">
       <div class="profileimg">
-        <img src="../../images/8.jpg" alt="profilepic" />
+        <img :src="linking(profile.profileImg)" alt="profilepic" />
       </div>
     </div>
     <div class="text-right mt-4 mr-3">
@@ -84,6 +84,9 @@ export default {
     },
     activeTab(tab) {
       this.tab = tab;
+    },
+    linking(url) {
+      return "http://localhost:8000/storage/" + url;
     }
   }
 };
@@ -114,6 +117,7 @@ export default {
     background-color: gray;
     position: relative;
     background-size: cover;
+    background-position: center;
   }
   .profileimg {
     width: 150px;
