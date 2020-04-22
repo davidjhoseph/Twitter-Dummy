@@ -55,7 +55,7 @@ class LoginController extends Controller
                     'email'=> $request['email'],
                     'password' => $request['password'],
                 ];
-                if (Auth::attempt($credentials)){
+                if (Auth::attempt($credentials, true)){
                     // Authentication passed...
                     return view('dashboard');
                 }else {
