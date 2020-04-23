@@ -2712,6 +2712,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
     this.getProfile();
@@ -2737,8 +2743,12 @@ __webpack_require__.r(__webpack_exports__);
     activeTab: function activeTab(tab) {
       this.tab = tab;
     },
-    linking: function linking(url) {
-      return "http://localhost:8000/storage/" + url;
+    linking: function linking(url, image) {
+      if (url !== null) {
+        return "http://localhost:8000/storage/" + url;
+      } else {
+        return "http://localhost:8000/images/" + image;
+      }
     }
   }
 });
@@ -40414,14 +40424,15 @@ var render = function() {
       {
         staticClass: "headerimg",
         style: {
-          "background-image": "url(" + _vm.linking(_vm.profile.headerImg) + ")"
+          "background-image":
+            "url(" + _vm.linking(_vm.profile.headerImg, "10.jpg") + ")"
         }
       },
       [
         _c("div", { staticClass: "profileimg" }, [
           _c("img", {
             attrs: {
-              src: _vm.linking(_vm.profile.profileImg),
+              src: _vm.linking(_vm.profile.profileImg, "8.jpg"),
               alt: "profilepic"
             }
           })
@@ -40435,7 +40446,7 @@ var render = function() {
       _c("div", { staticClass: "name" }, [_vm._v(_vm._s(_vm.user.name))]),
       _vm._v(" "),
       _c("div", { staticClass: "username" }, [
-        _vm._v("@" + _vm._s(_vm.user.username))
+        _vm._v("@" + _vm._s(_vm.user.username || "username"))
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "mt-2 caption" }, [
@@ -40445,13 +40456,19 @@ var render = function() {
       _c("div", { staticClass: "otherDetails" }, [
         _c("span", [
           _c("i", { staticClass: "fa fa-home mr-2" }),
-          _vm._v("\n        " + _vm._s(_vm.profile.location) + "\n      ")
+          _vm._v(
+            "\n        " +
+              _vm._s(_vm.profile.location || "Update your Location") +
+              "\n      "
+          )
         ]),
         _vm._v(" "),
         _c("span", [
           _c("i", { staticClass: "fa fa-home mr-2" }),
           _vm._v(
-            "\n        Born\n        " + _vm._s(_vm.profile.dob) + "\n      "
+            "\n        Born\n        " +
+              _vm._s(_vm.profile.dob || "Update your birthday") +
+              "\n      "
           )
         ]),
         _vm._v(" "),
@@ -40459,7 +40476,7 @@ var render = function() {
           _c("i", { staticClass: "fa fa-home mr-2" }),
           _vm._v(
             "\n        Joined\n        " +
-              _vm._s(_vm.profile.date_joined) +
+              _vm._s(_vm.profile.created_at) +
               "\n      "
           )
         ])

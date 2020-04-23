@@ -55,9 +55,9 @@ class LoginController extends Controller
                     'email'=> $request['email'],
                     'password' => $request['password'],
                 ];
-                if (Auth::attempt($credentials, true)){
+                if (Auth::attempt($credentials, $remember = true)){
                     // Authentication passed...
-                    return view('dashboard');
+                    return redirect()->intended('dashboard');
                 }else {
                     return 'User not found';
                 }

@@ -10,23 +10,24 @@ class ProfileController extends Controller
     public function index() {
         return collect([
             
-           'user' => User::find(11),
-            'profile' => User::find(11)->profile
+           'user' => User::find(1),
+            'profile' => User::find(1)->profile
         ]);
 
     }
     public function edit() {
-        $user = User::find(11);
-        $profile = User::find(11)->profile;
+        $user = User::find(1);
+        $profile = User::find(1)->profile;
         return view('editprofile', compact('user','profile'));
     }
     
     public function update (Request $request) {
         if(request('name')){
             $user = $request->validate([
-                'name' => ['min:5']
+                'name' => ['min:5'],
+                'username' => ['min:5'],
             ]);
-            User::find(11)->update($user);
+            User::find(1)->update($user);
         }
         $data = $request->validate([
             'caption' => ['min:8'],
@@ -37,7 +38,7 @@ class ProfileController extends Controller
         ]);
         if(request('profilepic')){
             $profilepicPath = request('profilepic')->store('profile', 'public');
-            User::find(11)->profile()->update(array_merge($data, [
+            User::find(1)->profile()->update(array_merge($data, [
                 'profileImg' =>  $profilepicPath
             ]));
             return redirect('dashboard');
@@ -45,7 +46,7 @@ class ProfileController extends Controller
 
         }elseif(request('headerpic')){
             $headerpicpicPath = request('headerpic')->store('profile', 'public');
-            User::find(11)->profile()->update(array_merge($data, [
+            User::find(1)->profile()->update(array_merge($data, [
                 'headerImg' =>  $headerpicpicPath
             ]));
             return redirect('dashboard');
@@ -53,13 +54,13 @@ class ProfileController extends Controller
         }elseif(request('profilepic') && request('headerpic')) {
             $profilepicPath = request('profilepic')->store('profile', 'public');
             $headerpicpicPath = request('headerpic')->store('profile', 'public');
-            User::find(11)->profile()->update(array_merge($data, [
+            User::find(1)->profile()->update(array_merge($data, [
                 'profileImg' =>  $profilepicPath,
                 'headerImg' =>  $headerpicpicPath
             ]));
             return redirect('dashboard');
         }
-        User::find(11)->profile()->update($data);
+        User::find(1)->profile()->update($data);
         return redirect('dashboard');
     }
 }

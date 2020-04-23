@@ -50,9 +50,10 @@ class RegisterController extends Controller
                 'email'=> $data['email'],
                 'password' => $data['password'],
             ];
-            if (Auth::attempt($credentials, true)){
+            if (Auth::attempt($credentials, $remember = true)){
                 // Authentication passed...
-                return view('dashboard');
+                return redirect()->intended('dashboard');
+
             }else {
                 return 'Please try again';
             }

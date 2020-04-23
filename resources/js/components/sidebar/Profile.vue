@@ -1,32 +1,38 @@
 <template>
   <div class="profile">
-    <div class="header">{{user.name}}</div>
-    <div class="headerimg" :style="{'background-image':`url(${linking(profile.headerImg)})`}">
+    <div class="header">{{ user.name }}</div>
+    <div
+      class="headerimg"
+      :style="{
+                'background-image': `url(${linking(profile.headerImg, '10.jpg')})`
+            }"
+    >
       <div class="profileimg">
-        <img :src="linking(profile.profileImg)" alt="profilepic" />
+        <img :src="linking(profile.profileImg, '8.jpg')" alt="profilepic" />
       </div>
     </div>
+
     <div class="text-right mt-4 mr-3">
       <a href="profile/edit" class="editprofile">Edit Profile</a>
     </div>
     <div class="details">
-      <div class="name">{{user.name}}</div>
-      <div class="username">@{{user.username}}</div>
-      <div class="mt-2 caption">{{profile.caption}}</div>
+      <div class="name">{{ user.name }}</div>
+      <div class="username">@{{ user.username || 'username' }}</div>
+      <div class="mt-2 caption">{{ profile.caption }}</div>
       <div class="otherDetails">
         <span>
           <i class="fa fa-home mr-2"></i>
-          {{profile.location}}
+          {{ profile.location || 'Update your Location' }}
         </span>
         <span>
           <i class="fa fa-home mr-2"></i>
           Born
-          {{profile.dob}}
+          {{ profile.dob || 'Update your birthday' }}
         </span>
         <span>
           <i class="fa fa-home mr-2"></i>
           Joined
-          {{profile.date_joined}}
+          {{ profile.created_at}}
         </span>
       </div>
       <div class="followers">
@@ -39,17 +45,17 @@
       </div>
     </div>
     <div class="tabs">
-      <div class="tab" :class="tab==='tweets' ? 'active' : ''" @click="activeTab('tweets')">
-        <router-link :to="{name:'tweets'}" tag="div">Tweets</router-link>
+      <div class="tab" :class="tab === 'tweets' ? 'active' : ''" @click="activeTab('tweets')">
+        <router-link :to="{ name: 'tweets' }" tag="div">Tweets</router-link>
       </div>
-      <div class="tab tabBig" :class="tab==='t&r' ? 'active' : ''" @click="activeTab('t&r')">
-        <router-link :to="{name:'t&p'}" tag="div">Tweets & Replies</router-link>
+      <div class="tab tabBig" :class="tab === 't&r' ? 'active' : ''" @click="activeTab('t&r')">
+        <router-link :to="{ name: 't&p' }" tag="div">Tweets & Replies</router-link>
       </div>
-      <div class="tab" :class="tab==='media' ? 'active' : ''" @click="activeTab('media')">
-        <router-link :to="{name:'media'}" tag="div">Media</router-link>
+      <div class="tab" :class="tab === 'media' ? 'active' : ''" @click="activeTab('media')">
+        <router-link :to="{ name: 'media' }" tag="div">Media</router-link>
       </div>
-      <div class="tab" :class="tab==='likes' ? 'active' : ''" @click="activeTab('likes')">
-        <router-link :to="{name:'likes'}" tag="div">Likes</router-link>
+      <div class="tab" :class="tab === 'likes' ? 'active' : ''" @click="activeTab('likes')">
+        <router-link :to="{ name: 'likes' }" tag="div">Likes</router-link>
       </div>
     </div>
     <div>
@@ -85,8 +91,12 @@ export default {
     activeTab(tab) {
       this.tab = tab;
     },
-    linking(url) {
-      return "http://localhost:8000/storage/" + url;
+    linking(url, image) {
+      if (url !== null) {
+        return "http://localhost:8000/storage/" + url;
+      } else {
+        return "http://localhost:8000/images/" + image;
+      }
     }
   }
 };

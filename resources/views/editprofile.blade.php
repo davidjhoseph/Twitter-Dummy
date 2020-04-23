@@ -17,14 +17,23 @@
                         <div class="headerimg">
                             <label for="headerPic" class="headerpicLabel">OOO<i class="fa fa-camera"></i></label>
                             <input type="file" id="headerPic" class="hideInput" name="headerpic">
+                            @if($profile->headerImg)
                             <img src="{{ asset("storage/{$profile->headerImg}") }}" alt="">
+                            @else
+                            <img src="{{ asset("images/10.jpg") }}" alt="">
+                            @endif
                             <div class="profileimg">
                                 <label for="profilePic" class="profilepicLabel">OOO<i class="fa fa-camera"></i></label>
                                 <input type="file" id="profilePic" class="hideInput" name="profilepic">
-                                <img src="{{ asset("storage/{$profile->profileImg}") }}" alt="profilepic" />
+                                @if($profile->profileImg)
+                                <img src="{{ asset("storage/{$profile->profileImg}") }}" alt="">
+                                @else
+                                <img src="{{ asset("images/8.jpg") }}" alt="">
+                                @endif
                             </div>
                         </div>
                         <profile-input idinput="name" name="name" label="Name" data="{{ $user->name }}" idinput="name"></profile-input>
+                        <profile-input idinput="username" name="username" label="Username" number="50" data="{{ $user->username }}"></profile-input>
                         <profile-input idinput="bio" name="caption" label="Bio" number="160" data="{{ $profile->caption }}" idinput="bio"></profile-input>
                         <profile-input idinput="location" name="location" label="Location" number="30" data="{{ $profile->location }}" idinput="location"></profile-input>
                         <profile-input idinput="website" name="website" label="Website" number="100" placeholder="Add your website" data="" idinput="website"></profile-input>
