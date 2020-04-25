@@ -51,7 +51,7 @@ class RegisterController extends Controller
                 'password' => $data['password'],
             ];
             if (Auth::attempt($credentials, $remember = true)){
-                // Authentication passed...
+            //    $request->session()->put('user', $data);
                 return redirect()->intended('dashboard');
 
             }else {

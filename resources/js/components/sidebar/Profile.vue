@@ -13,7 +13,7 @@
     </div>
 
     <div class="text-right mt-4 mr-3">
-      <a href="profile/edit" class="editprofile">Edit Profile</a>
+      <a :href="link('profile/edit')" class="editprofile">Edit Profile</a>
     </div>
     <div class="details">
       <div class="name">{{ user.name }}</div>
@@ -97,6 +97,9 @@ export default {
       } else {
         return "http://localhost:8000/images/" + image;
       }
+    },
+    link(url) {
+      return "http://localhost:8000/" + url;
     }
   }
 };
@@ -109,6 +112,8 @@ export default {
   border-left: 1px solid lightgray;
   .header {
     padding: 15px 50px;
+    font-size: 23px;
+    font-weight: bold;
   }
   .editprofile {
     padding: 15px 25px;

@@ -57,6 +57,7 @@ class LoginController extends Controller
                 ];
                 if (Auth::attempt($credentials, $remember = true)){
                     // Authentication passed...
+                    // $request->session()->put('useremail', $request['email']);
                     return redirect()->intended('dashboard');
                 }else {
                     return 'User not found';
