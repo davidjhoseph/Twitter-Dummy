@@ -23,6 +23,12 @@
 <script>
 import Sidebar from "./partials/Sidebar";
 export default {
+  props: {
+    user: {
+      type: String,
+      required: true
+    }
+  },
   components: {
     sidebar: Sidebar
   }

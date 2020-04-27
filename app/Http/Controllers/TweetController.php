@@ -12,6 +12,6 @@ class TweetController extends Controller
         return Tweets::orderBy('id', 'desc')->get();
     }
     public function show() {
-        return Tweets::where('user_id', 11)->orderBy('id', 'desc')->get();
+        return Tweets::where('user_id', $id)->orderBy('id', 'desc')->get();
     }
 }

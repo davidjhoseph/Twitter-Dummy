@@ -153,7 +153,7 @@ export default {
   }
   .details {
     padding: 0 20px;
-    margin-top: 70px;
+    margin-top: 20px;
     .name {
       font-size: 20px;
       font-weight: bold;

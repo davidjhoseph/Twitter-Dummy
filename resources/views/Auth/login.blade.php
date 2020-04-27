@@ -11,7 +11,7 @@
                     <div class="heading mb-4">
                         Log in
                     </div>
-                    <form action="api/login" method="POST">
+                    <form action="login" method="POST">
                         @csrf
                         <register-input  idInput="username" name="username"  title="Username, Phone or Email" type="text"></register-input>
                         <register-input  idinput="pass" name="password"  title="Password" type="password" ></register-input>

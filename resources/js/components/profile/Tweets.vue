@@ -35,7 +35,7 @@ export default {
   methods: {
     getTweets() {
       axios
-        .get("http://localhost:8000/api/tweets/user/11")
+        .get("http://localhost:8000/api/tweets/user")
         .then(response => {
           this.tweets = response.data;
         })

@@ -15,10 +15,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->middleware('guest');
 Route::get('register', 'RegisterController@index');
-Route::get('login', 'LoginController@index');
-Route::get('dashboard', 'LoginController@dashboard');
+Route::get('login', 'LoginController@index')->name('login');
+Route::get('dashboard', 'LoginController@dashboard')->middleware('auth');
+Route::post('login', 'LoginController@authenticate');
+Route::get('logout', 'LoginController@logout');
+Route::post('register', 'RegisterController@store');
 Route::get('profile/edit', 'ProfileController@edit');
 Route::patch('profile/update', 'ProfileController@update');
 

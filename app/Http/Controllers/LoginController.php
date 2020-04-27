@@ -25,6 +25,7 @@ class LoginController extends Controller
      */
     public function authenticate(Request $request)
     {
+        $this->middleware('auth');
     
         $validate = Validator::make($request->all(), [
             'username' => 'required',
@@ -59,6 +60,7 @@ class LoginController extends Controller
                     // Authentication passed...
                     // $request->session()->put('useremail', $request['email']);
                     return redirect()->intended('dashboard');
+                    // return Auth::user();
                 }else {
                     return 'User not found';
                 }
@@ -68,7 +70,13 @@ class LoginController extends Controller
         }
 
     }
+    public function logout() {
+        $this->middleware('auth');
+        Auth::logout();
+        return redirect('/');
+    }
     public function dashboard() {
+        $this->middleware('auth');
         return view('dashboard');
     }
 }

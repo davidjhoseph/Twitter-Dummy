@@ -152,7 +152,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .holder {
   width: 100%;
   .tweetButton {

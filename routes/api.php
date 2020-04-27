@@ -18,11 +18,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('register', 'RegisterController@store');
-Route::post('login', 'LoginController@authenticate');
 Route::get('tweets', 'TweetController@index');
 Route::get('profile', 'ProfileController@index');
-Route::get('tweets/user/11', 'TweetController@show');
+Route::get('tweets/user', 'TweetController@show');
 
 
 

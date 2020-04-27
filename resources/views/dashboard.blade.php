@@ -1,4 +1,8 @@
 @extends('layout')
 @section('content')
-    <dashboard></dashboard>
+    @if(Auth::user()->email)
+    <dashboard user="{{ Auth::user() }}"></dashboard>
+    @else
+        <script>windows.location="/login"</script>
+    @endif
 @endsection

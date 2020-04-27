@@ -11,7 +11,7 @@
                     <div class="heading mb-4">
                         Create your account
                     </div>
-                    <form action="api/register" method="POST">
+                    <form action="register" method="POST">
                         @csrf
                         <register-input  idInput="name" name="name"  title="Name" namefield></register-input>
                         <register-input  idInput="email" name="email"  title="Email" type="email" value="{{ old('email') }}"></register-input>
