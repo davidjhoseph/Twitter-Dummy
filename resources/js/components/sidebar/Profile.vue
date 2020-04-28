@@ -68,6 +68,7 @@
 export default {
   created: function() {
     this.getProfile();
+    // console.log();
   },
   data() {
     return {
@@ -79,7 +80,7 @@ export default {
   methods: {
     getProfile() {
       axios
-        .get("http://localhost:8000/api/profile")
+        .get(`http://localhost:8000/api/profile/${window.user_id}`)
         .then(response => {
           this.user = response.data.user;
           this.profile = response.data.profile;

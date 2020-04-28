@@ -5,7 +5,9 @@
       <form action="/tweet" method="POST" enctype="multipart/form-data">
         <div class="row1">
           <div class="dp">
-            <!-- <img src="" alt=""> -->
+            <a :href="linking(profile.profileImg)">
+              <img :src="linking(profile.profileImg, '10.jpg')" alt="dp" />
+            </a>
           </div>
           <input type="text" placeholder="What's happening?" v-model="tweet" />
         </div>
@@ -45,10 +47,13 @@
 export default {
   created: function() {
     this.getTweets();
+    this.getProfile();
   },
   data() {
     return {
       tweets: [],
+      user: {},
+      profile: {},
       tweet: ""
     };
   },
@@ -62,6 +67,24 @@ export default {
         .catch(error => {
           console.log(error);
         });
+    },
+    getProfile() {
+      axios
+        .get(`http://localhost:8000/api/profile/${window.user_id}`)
+        .then(response => {
+          this.user = response.data.user;
+          this.profile = response.data.profile;
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    },
+    linking(url, image) {
+      if (url !== null) {
+        return "http://localhost:8000/storage/" + url;
+      } else {
+        return "http://localhost:8000/images/" + image;
+      }
     }
   }
 };
@@ -83,7 +106,7 @@ export default {
     z-index: 999999999;
     position: fixed;
     top: 0;
-    width: 40%;
+    // width: 40%;
     // overflow: hidden;
   }
   .tweetWrite {
@@ -97,7 +120,12 @@ export default {
         width: 50px;
         height: 50px;
         border-radius: 50%;
-        background-color: gray;
+        // background-color: gray;
+        img {
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+        }
       }
       input {
         // min-height: 35px;

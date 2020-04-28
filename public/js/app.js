@@ -2628,13 +2628,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
     this.getTweets();
+    this.getProfile();
   },
   data: function data() {
     return {
       tweets: [],
+      user: {},
+      profile: {},
       tweet: ""
     };
   },
@@ -2647,6 +2652,23 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (error) {
         console.log(error);
       });
+    },
+    getProfile: function getProfile() {
+      var _this2 = this;
+
+      axios.get("http://localhost:8000/api/profile/".concat(window.user_id)).then(function (response) {
+        _this2.user = response.data.user;
+        _this2.profile = response.data.profile;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    linking: function linking(url, image) {
+      if (url !== null) {
+        return "http://localhost:8000/storage/" + url;
+      } else {
+        return "http://localhost:8000/images/" + image;
+      }
     }
   }
 });
@@ -2747,7 +2769,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
-    this.getProfile();
+    this.getProfile(); // console.log();
   },
   data: function data() {
     return {
@@ -2760,7 +2782,7 @@ __webpack_require__.r(__webpack_exports__);
     getProfile: function getProfile() {
       var _this = this;
 
-      axios.get("http://localhost:8000/api/profile").then(function (response) {
+      axios.get("http://localhost:8000/api/profile/".concat(window.user_id)).then(function (response) {
         _this.user = response.data.user;
         _this.profile = response.data.profile;
       })["catch"](function (error) {
@@ -7518,7 +7540,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".home[data-v-65ae5e9d] {\n  width: 100%;\n  border-right: 1px solid lightgray;\n  border-left: 1px solid lightgray;\n}\n.home .heading[data-v-65ae5e9d] {\n  font-size: 20px;\n  font-weight: bold;\n  color: black;\n  width: inherit;\n  height: 50px;\n  padding: 10px 10px;\n  width: 28.25%;\n  background-color: white;\n  z-index: 999999999;\n  position: fixed;\n  top: 0;\n  width: 40%;\n}\n.home .tweetWrite[data-v-65ae5e9d] {\n  padding-top: 60px;\n  padding-bottom: 10px;\n}\n.home .tweetWrite .row1[data-v-65ae5e9d] {\n  display: flex;\n  align-items: center;\n  padding: 0 10px;\n}\n.home .tweetWrite .row1 .dp[data-v-65ae5e9d] {\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n  background-color: gray;\n}\n.home .tweetWrite .row1 input[data-v-65ae5e9d] {\n  font-size: 20px;\n  margin-left: 10px;\n  border: none;\n  width: 80%;\n}\n.home .tweetWrite .row1 input[data-v-65ae5e9d]:focus {\n  outline: none;\n}\n.home .tweetWrite .row1 input[data-v-65ae5e9d]::-webkit-input-placeholder {\n  color: lightgray;\n}\n.home .tweetWrite .row1 input[data-v-65ae5e9d]::-moz-placeholder {\n  color: lightgray;\n}\n.home .tweetWrite .row1 input[data-v-65ae5e9d]:-ms-input-placeholder {\n  color: lightgray;\n}\n.home .tweetWrite .row1 input[data-v-65ae5e9d]::-ms-input-placeholder {\n  color: lightgray;\n}\n.home .tweetWrite .row1 input[data-v-65ae5e9d]::placeholder {\n  color: lightgray;\n}\n.home .tweetWrite .row2[data-v-65ae5e9d] {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 0 20px;\n}\n.home .tweetWrite .row2 input[data-v-65ae5e9d] {\n  display: none;\n}\n.home .tweetWrite .row2 label[data-v-65ae5e9d] {\n  margin-left: 60px;\n  cursor: pointer;\n}\n.home .tweetWrite .row2 label i[data-v-65ae5e9d] {\n  font-size: 23px;\n  color: #1da1f2;\n}\n.home .tweetWrite .row2 button[data-v-65ae5e9d] {\n  width: 90px;\n  font-weight: bold;\n  padding: 10px;\n  border-radius: 30px;\n}\n.home .contour[data-v-65ae5e9d] {\n  height: 10px;\n  background-color: #f0f0f0;\n}\n.home .tweetBox[data-v-65ae5e9d] {\n  padding: 10px 0;\n}\n.home .tweetBox .profilepic[data-v-65ae5e9d] {\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n}\n.home .tweetBox .profilepic img[data-v-65ae5e9d] {\n  width: 100%;\n  border-radius: 50%;\n}\n.home .tweetBox .tweet .name[data-v-65ae5e9d] {\n  font-size: 18px;\n  font-weight: bold;\n  color: black;\n}\n.home .tweetBox .tweet .username[data-v-65ae5e9d] {\n  color: gray;\n}", ""]);
+exports.push([module.i, ".home[data-v-65ae5e9d] {\n  width: 100%;\n  border-right: 1px solid lightgray;\n  border-left: 1px solid lightgray;\n}\n.home .heading[data-v-65ae5e9d] {\n  font-size: 20px;\n  font-weight: bold;\n  color: black;\n  width: inherit;\n  height: 50px;\n  padding: 10px 10px;\n  width: 28.25%;\n  background-color: white;\n  z-index: 999999999;\n  position: fixed;\n  top: 0;\n}\n.home .tweetWrite[data-v-65ae5e9d] {\n  padding-top: 60px;\n  padding-bottom: 10px;\n}\n.home .tweetWrite .row1[data-v-65ae5e9d] {\n  display: flex;\n  align-items: center;\n  padding: 0 10px;\n}\n.home .tweetWrite .row1 .dp[data-v-65ae5e9d] {\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n}\n.home .tweetWrite .row1 .dp img[data-v-65ae5e9d] {\n  width: 100%;\n  height: 100%;\n  border-radius: 50%;\n}\n.home .tweetWrite .row1 input[data-v-65ae5e9d] {\n  font-size: 20px;\n  margin-left: 10px;\n  border: none;\n  width: 80%;\n}\n.home .tweetWrite .row1 input[data-v-65ae5e9d]:focus {\n  outline: none;\n}\n.home .tweetWrite .row1 input[data-v-65ae5e9d]::-webkit-input-placeholder {\n  color: lightgray;\n}\n.home .tweetWrite .row1 input[data-v-65ae5e9d]::-moz-placeholder {\n  color: lightgray;\n}\n.home .tweetWrite .row1 input[data-v-65ae5e9d]:-ms-input-placeholder {\n  color: lightgray;\n}\n.home .tweetWrite .row1 input[data-v-65ae5e9d]::-ms-input-placeholder {\n  color: lightgray;\n}\n.home .tweetWrite .row1 input[data-v-65ae5e9d]::placeholder {\n  color: lightgray;\n}\n.home .tweetWrite .row2[data-v-65ae5e9d] {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 0 20px;\n}\n.home .tweetWrite .row2 input[data-v-65ae5e9d] {\n  display: none;\n}\n.home .tweetWrite .row2 label[data-v-65ae5e9d] {\n  margin-left: 60px;\n  cursor: pointer;\n}\n.home .tweetWrite .row2 label i[data-v-65ae5e9d] {\n  font-size: 23px;\n  color: #1da1f2;\n}\n.home .tweetWrite .row2 button[data-v-65ae5e9d] {\n  width: 90px;\n  font-weight: bold;\n  padding: 10px;\n  border-radius: 30px;\n}\n.home .contour[data-v-65ae5e9d] {\n  height: 10px;\n  background-color: #f0f0f0;\n}\n.home .tweetBox[data-v-65ae5e9d] {\n  padding: 10px 0;\n}\n.home .tweetBox .profilepic[data-v-65ae5e9d] {\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n}\n.home .tweetBox .profilepic img[data-v-65ae5e9d] {\n  width: 100%;\n  border-radius: 50%;\n}\n.home .tweetBox .tweet .name[data-v-65ae5e9d] {\n  font-size: 18px;\n  font-weight: bold;\n  color: black;\n}\n.home .tweetBox .tweet .username[data-v-65ae5e9d] {\n  color: gray;\n}", ""]);
 
 // exports
 
@@ -40357,7 +40379,20 @@ var render = function() {
           },
           [
             _c("div", { staticClass: "row1" }, [
-              _c("div", { staticClass: "dp" }),
+              _c("div", { staticClass: "dp" }, [
+                _c(
+                  "a",
+                  { attrs: { href: _vm.linking(_vm.profile.profileImg) } },
+                  [
+                    _c("img", {
+                      attrs: {
+                        src: _vm.linking(_vm.profile.profileImg, "10.jpg"),
+                        alt: "dp"
+                      }
+                    })
+                  ]
+                )
+              ]),
               _vm._v(" "),
               _c("input", {
                 directives: [

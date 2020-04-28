@@ -11,7 +11,7 @@
                     <div class="heading mb-4">
                         Edit Profile
                     </div>
-                    <form action="update" method="POST" enctype="multipart/form-data">
+                    <form action="update/{{ Auth::user()->id }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('patch')
                         <div class="headerimg">

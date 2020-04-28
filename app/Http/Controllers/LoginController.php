@@ -50,7 +50,6 @@ class LoginController extends Controller
                     'email' => $loginuserphone->email
                 ]);
             }
-            // Not working as expected
             if($loginuseremail || $loginuserphone || $loginusername){
                 $credentials = [
                     'email'=> $request['email'],

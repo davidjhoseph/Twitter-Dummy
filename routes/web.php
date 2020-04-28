@@ -23,8 +23,9 @@ Route::post('login', 'LoginController@authenticate');
 Route::get('logout', 'LoginController@logout');
 Route::post('register', 'RegisterController@store');
 Route::get('profile/edit', 'ProfileController@edit');
-Route::patch('profile/update', 'ProfileController@update');
+Route::patch('profile/update/{id}', 'ProfileController@update');
 Route::get('tweets/user/{id}', 'TweetController@show');
+
 
 
 

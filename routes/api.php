@@ -19,7 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('tweets', 'TweetController@index');
-Route::get('profile', 'ProfileController@index');
+Route::get('profile/{id}', 'ProfileController@index');
 
 
 

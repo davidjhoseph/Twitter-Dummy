@@ -26,6 +26,7 @@ export default {
   created: function() {
     window.user_id = +this.user;
   },
+
   props: {
     user: {
       type: String,
