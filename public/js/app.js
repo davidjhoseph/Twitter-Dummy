@@ -1978,6 +1978,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  created: function created() {
+    window.user_id = +this.user;
+  },
   props: {
     user: {
       type: String,
@@ -2562,7 +2565,7 @@ __webpack_require__.r(__webpack_exports__);
     getTweets: function getTweets() {
       var _this = this;
 
-      axios.get("http://localhost:8000/api/tweets/user").then(function (response) {
+      axios.get("http://localhost:8000/tweets/user/".concat(window.user_id)).then(function (response) {
         _this.tweets = response.data;
       })["catch"](function (err) {
         console.log(err);
@@ -2608,13 +2611,31 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
     this.getTweets();
   },
   data: function data() {
     return {
-      tweets: []
+      tweets: [],
+      tweet: ""
     };
   },
   methods: {
@@ -7497,7 +7518,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".home[data-v-65ae5e9d] {\n  width: 100%;\n  border-right: 1px solid lightgray;\n  border-left: 1px solid lightgray;\n}\n.home .heading[data-v-65ae5e9d] {\n  font-size: 20px;\n  font-weight: bold;\n  color: black;\n  width: inherit;\n  height: 50px;\n  padding: 10px 10px;\n  width: 28.25%;\n  background-color: white;\n  z-index: 999999999;\n  position: fixed;\n  top: 0;\n}\n.home .tweetBox[data-v-65ae5e9d] {\n  padding: 10px 0;\n}\n.home .tweetBox .profilepic[data-v-65ae5e9d] {\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n}\n.home .tweetBox .profilepic img[data-v-65ae5e9d] {\n  width: 100%;\n  border-radius: 50%;\n}\n.home .tweetBox .tweet .name[data-v-65ae5e9d] {\n  font-size: 18px;\n  font-weight: bold;\n  color: black;\n}\n.home .tweetBox .tweet .username[data-v-65ae5e9d] {\n  color: gray;\n}", ""]);
+exports.push([module.i, ".home[data-v-65ae5e9d] {\n  width: 100%;\n  border-right: 1px solid lightgray;\n  border-left: 1px solid lightgray;\n}\n.home .heading[data-v-65ae5e9d] {\n  font-size: 20px;\n  font-weight: bold;\n  color: black;\n  width: inherit;\n  height: 50px;\n  padding: 10px 10px;\n  width: 28.25%;\n  background-color: white;\n  z-index: 999999999;\n  position: fixed;\n  top: 0;\n  width: 40%;\n}\n.home .tweetWrite[data-v-65ae5e9d] {\n  padding-top: 60px;\n  padding-bottom: 10px;\n}\n.home .tweetWrite .row1[data-v-65ae5e9d] {\n  display: flex;\n  align-items: center;\n  padding: 0 10px;\n}\n.home .tweetWrite .row1 .dp[data-v-65ae5e9d] {\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n  background-color: gray;\n}\n.home .tweetWrite .row1 input[data-v-65ae5e9d] {\n  font-size: 20px;\n  margin-left: 10px;\n  border: none;\n  width: 80%;\n}\n.home .tweetWrite .row1 input[data-v-65ae5e9d]:focus {\n  outline: none;\n}\n.home .tweetWrite .row1 input[data-v-65ae5e9d]::-webkit-input-placeholder {\n  color: lightgray;\n}\n.home .tweetWrite .row1 input[data-v-65ae5e9d]::-moz-placeholder {\n  color: lightgray;\n}\n.home .tweetWrite .row1 input[data-v-65ae5e9d]:-ms-input-placeholder {\n  color: lightgray;\n}\n.home .tweetWrite .row1 input[data-v-65ae5e9d]::-ms-input-placeholder {\n  color: lightgray;\n}\n.home .tweetWrite .row1 input[data-v-65ae5e9d]::placeholder {\n  color: lightgray;\n}\n.home .tweetWrite .row2[data-v-65ae5e9d] {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 0 20px;\n}\n.home .tweetWrite .row2 input[data-v-65ae5e9d] {\n  display: none;\n}\n.home .tweetWrite .row2 label[data-v-65ae5e9d] {\n  margin-left: 60px;\n  cursor: pointer;\n}\n.home .tweetWrite .row2 label i[data-v-65ae5e9d] {\n  font-size: 23px;\n  color: #1da1f2;\n}\n.home .tweetWrite .row2 button[data-v-65ae5e9d] {\n  width: 90px;\n  font-weight: bold;\n  padding: 10px;\n  border-radius: 30px;\n}\n.home .contour[data-v-65ae5e9d] {\n  height: 10px;\n  background-color: #f0f0f0;\n}\n.home .tweetBox[data-v-65ae5e9d] {\n  padding: 10px 0;\n}\n.home .tweetBox .profilepic[data-v-65ae5e9d] {\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n}\n.home .tweetBox .profilepic img[data-v-65ae5e9d] {\n  width: 100%;\n  border-radius: 50%;\n}\n.home .tweetBox .tweet .name[data-v-65ae5e9d] {\n  font-size: 18px;\n  font-weight: bold;\n  color: black;\n}\n.home .tweetBox .tweet .username[data-v-65ae5e9d] {\n  color: gray;\n}", ""]);
 
 // exports
 
@@ -40324,7 +40345,61 @@ var render = function() {
     [
       _c("div", { staticClass: "heading border-bottom" }, [_vm._v("Home")]),
       _vm._v(" "),
-      _c("div", { staticClass: "pt-5" }),
+      _c("div", { staticClass: "tweetWrite" }, [
+        _c(
+          "form",
+          {
+            attrs: {
+              action: "/tweet",
+              method: "POST",
+              enctype: "multipart/form-data"
+            }
+          },
+          [
+            _c("div", { staticClass: "row1" }, [
+              _c("div", { staticClass: "dp" }),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.tweet,
+                    expression: "tweet"
+                  }
+                ],
+                attrs: { type: "text", placeholder: "What's happening?" },
+                domProps: { value: _vm.tweet },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.tweet = $event.target.value
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row2 mt-2" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _c("input", { attrs: { type: "file", id: "tweetImage" } }),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary",
+                  attrs: { disabled: _vm.tweet.length < 1 }
+                },
+                [_vm._v("Tweet")]
+              )
+            ])
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "contour" }),
       _vm._v(" "),
       _vm._l(_vm.tweets, function(tweet) {
         return _c(
@@ -40332,7 +40407,7 @@ var render = function() {
           { key: tweet.id, staticClass: "tweetBox border-bottom" },
           [
             _c("div", { staticClass: "row" }, [
-              _vm._m(0, true),
+              _vm._m(1, true),
               _vm._v(" "),
               _c("div", { staticClass: "col-md-10" }, [
                 _c("div", { staticClass: "tweet" }, [
@@ -40364,6 +40439,14 @@ var render = function() {
   )
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "tweetImage" } }, [
+      _c("i", { staticClass: "fa fa-image" })
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

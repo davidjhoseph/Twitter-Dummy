@@ -20,7 +20,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('tweets', 'TweetController@index');
 Route::get('profile', 'ProfileController@index');
-Route::get('tweets/user', 'TweetController@show');
 
 
 

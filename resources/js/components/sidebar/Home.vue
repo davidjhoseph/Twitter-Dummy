@@ -1,7 +1,24 @@
 <template>
   <div class="home">
     <div class="heading border-bottom">Home</div>
-    <div class="pt-5"></div>
+    <div class="tweetWrite">
+      <form action="/tweet" method="POST" enctype="multipart/form-data">
+        <div class="row1">
+          <div class="dp">
+            <!-- <img src="" alt=""> -->
+          </div>
+          <input type="text" placeholder="What's happening?" v-model="tweet" />
+        </div>
+        <div class="row2 mt-2">
+          <label for="tweetImage">
+            <i class="fa fa-image"></i>
+          </label>
+          <input type="file" id="tweetImage" />
+          <button class="btn btn-primary" :disabled="tweet.length < 1">Tweet</button>
+        </div>
+      </form>
+    </div>
+    <div class="contour"></div>
     <div v-for="tweet in tweets" :key="tweet.id" class="tweetBox border-bottom">
       <div class="row">
         <div class="col-md-2">
@@ -31,7 +48,8 @@ export default {
   },
   data() {
     return {
-      tweets: []
+      tweets: [],
+      tweet: ""
     };
   },
   methods: {
@@ -65,7 +83,66 @@ export default {
     z-index: 999999999;
     position: fixed;
     top: 0;
+    width: 40%;
     // overflow: hidden;
+  }
+  .tweetWrite {
+    padding-top: 60px;
+    padding-bottom: 10px;
+    .row1 {
+      display: flex;
+      align-items: center;
+      padding: 0 10px;
+      .dp {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: gray;
+      }
+      input {
+        // min-height: 35px;
+        // word-wrap: break-word;
+        // overflow-wrap: break-word;
+        // word-break: break-all;
+        font-size: 20px;
+        margin-left: 10px;
+        border: none;
+        width: 80%;
+        &:focus {
+          outline: none;
+        }
+        &::placeholder {
+          color: lightgray;
+        }
+      }
+    }
+    .row2 {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      input {
+        display: none;
+      }
+      label {
+        margin-left: 60px;
+        cursor: pointer;
+        i {
+          font-size: 23px;
+          color: #1da1f2;
+        }
+      }
+      button {
+        width: 90px;
+        font-weight: bold;
+        padding: 10px;
+        border-radius: 30px;
+      }
+    }
+  }
+  .contour {
+    height: 10px;
+    background-color: #f0f0f0;
   }
   .tweetBox {
     // background-color: red;
