@@ -6,7 +6,7 @@
         <div class="row1">
           <div class="dp">
             <router-link :to="{ name: 'profile', params: {userId:user.id} }">
-              <img :src="linking(profile.profileImg, '10.jpg')" alt="dp" />
+              <img :src="linking(profile.profileImg, '8.jpg')" alt="dp" />
             </router-link>
           </div>
           <input type="text" placeholder="What's happening?" v-model="tweetWrite" />
@@ -27,7 +27,7 @@
         <div class="col-md-2">
           <div class="profilepic">
             <router-link :to="{ name: 'profile', params: {userId: tweet.user.id || 1} }">
-              <img :src="linking(tweet.profile.profileImg, '10.jpg')" alt />
+              <img :src="linking(tweet.profile.profileImg, '8.jpg')" alt />
             </router-link>
           </div>
         </div>

@@ -2783,6 +2783,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
     this.getProfile();
+    this.following();
   },
   data: function data() {
     return {
@@ -2790,7 +2791,8 @@ __webpack_require__.r(__webpack_exports__);
       profile: {},
       tab: "",
       id: this.$route.params.userId,
-      authId: window.user_id
+      authId: window.user_id,
+      follows: false
     };
   },
   methods: {
@@ -2805,8 +2807,20 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     follow: function follow() {
+      var _this2 = this;
+
       axios.post("http://localhost:8000/follow/".concat(this.id)).then(function (response) {
-        console.log(response.data);
+        _this2.follows = response.data.follows; // console.log(response.data);
+      })["catch"](function (err) {
+        console.log(err.status);
+      });
+    },
+    following: function following() {
+      var _this3 = this;
+
+      axios.get("http://localhost:8000/follow/".concat(this.id)).then(function (response) {
+        _this3.follows = response.data; // console.log(response.data);
+        // console.log(this.follows);
       })["catch"](function (err) {
         console.log(err.status);
       });
@@ -40424,7 +40438,7 @@ var render = function() {
                     [
                       _c("img", {
                         attrs: {
-                          src: _vm.linking(_vm.profile.profileImg, "10.jpg"),
+                          src: _vm.linking(_vm.profile.profileImg, "8.jpg"),
                           alt: "dp"
                         }
                       })
@@ -40502,10 +40516,7 @@ var render = function() {
                       [
                         _c("img", {
                           attrs: {
-                            src: _vm.linking(
-                              tweet.profile.profileImg,
-                              "10.jpg"
-                            ),
+                            src: _vm.linking(tweet.profile.profileImg, "8.jpg"),
                             alt: ""
                           }
                         })
@@ -40660,7 +40671,7 @@ var render = function() {
                 }
               }
             },
-            [_vm._v("follow")]
+            [_vm._v(_vm._s(_vm.follows ? "unfollow" : "follow"))]
           )
         ]),
     _vm._v(" "),

@@ -11,6 +11,13 @@ class FollowController extends Controller
         $this->middleware('auth');
     }
    public function follow(User $user) {
-       return auth()->user()->following()->toggle($user);
+        $follows = auth()->user()->following->contains($user->id) ? false : true;
+       return collect([
+           'status'=> auth()->user()->following()->toggle($user),
+           'follows' => $follows
+       ]);
+   }
+   public function following(User $user) {
+        return auth()->user()->following->contains($user->id) ? 'true' : 'false';
    }
 }
