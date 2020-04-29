@@ -16,7 +16,7 @@ class RegisterController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function __construct() {
-        $this->middleware('guest');
+        // $this->middleware('guest');
     }
     public function index()
     {
@@ -50,7 +50,7 @@ class RegisterController extends Controller
                 'email'=> $data['email'],
                 'password' => $data['password'],
             ];
-            if (Auth::attempt($credentials, $remember = true)){
+            if (Auth::attempt($credentials)){
                 return redirect()->intended('dashboard');
             }else {
                 return 'Please try again';

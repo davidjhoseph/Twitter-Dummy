@@ -12,7 +12,6 @@ $factory->define(Tweets::class, function (Faker $faker) {
         'username'=>$faker->username,
         'name' => $faker->name,
         'file' => '',
-        'title' => $faker->text(50),
-        'content' => $faker->text(200),
+        'content' => $faker->text(50),
     ];
 });

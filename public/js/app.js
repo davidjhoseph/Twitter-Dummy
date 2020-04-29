@@ -2552,7 +2552,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
     this.getTweets();
@@ -2636,7 +2635,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
     this.getTweets();
@@ -2654,7 +2652,7 @@ __webpack_require__.r(__webpack_exports__);
     getTweets: function getTweets() {
       var _this = this;
 
-      axios.get("http://localhost:8000/api/tweets").then(function (response) {
+      axios.get("http://localhost:8000/tweets").then(function (response) {
         _this.tweets = response.data;
       })["catch"](function (error) {
         console.log(error);
@@ -40355,10 +40353,6 @@ var render = function() {
                   ])
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "title mb-1 w-100" }, [
-                  _vm._v(_vm._s(tweet.title))
-                ]),
-                _vm._v(" "),
                 _c("div", { staticClass: "content w-100" }, [
                   _vm._v(_vm._s(tweet.content))
                 ])
@@ -40551,10 +40545,6 @@ var render = function() {
                           )
                       )
                     ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "title mb-1 w-100" }, [
-                    _vm._v(_vm._s(tweet.tweet.title || "Tweet Title"))
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "content w-100" }, [

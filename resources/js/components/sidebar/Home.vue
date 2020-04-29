@@ -39,7 +39,6 @@
                 class="username"
               >@{{typeof tweet.user === 'string' || tweet.user.username === null ? 'username' : tweet.user.username}}</span>
             </div>
-            <div class="title mb-1 w-100">{{tweet.tweet.title || 'Tweet Title'}}</div>
             <div class="content w-100">{{ tweet.tweet.content || 'Tweet Content'}}</div>
           </div>
         </div>
@@ -65,7 +64,7 @@ export default {
   methods: {
     getTweets() {
       axios
-        .get("http://localhost:8000/api/tweets")
+        .get("http://localhost:8000/tweets")
         .then(response => {
           this.tweets = response.data;
         })

@@ -13,7 +13,6 @@
               <span class="mr-3 name">{{tweet.name}}</span>
               <span class="username">@{{tweet.username}}</span>
             </div>
-            <div class="title mb-1 w-100">{{tweet.title}}</div>
             <div class="content w-100">{{ tweet.content }}</div>
           </div>
         </div>
