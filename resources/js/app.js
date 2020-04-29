@@ -125,7 +125,7 @@ const routes = [
         name: "more"
     },
     {
-        path: "/profile",
+        path: "/profile/:userId",
         component: Profile,
         name: "profile",
         children: [

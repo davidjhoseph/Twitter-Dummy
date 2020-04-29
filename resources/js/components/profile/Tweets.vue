@@ -29,13 +29,14 @@ export default {
   },
   data() {
     return {
-      tweets: {}
+      tweets: {},
+      id: this.$route.params.userId
     };
   },
   methods: {
     getTweets() {
       axios
-        .get(`http://localhost:8000/tweets/user/${window.user_id}`)
+        .get(`http://localhost:8000/tweets/user/${this.id}`)
         .then(response => {
           this.tweets = response.data;
         })

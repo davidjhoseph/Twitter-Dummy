@@ -9,9 +9,10 @@ use Illuminate\Support\Facades\Auth;
 class ProfileController extends Controller
 {
     public function index($id) {
+        // $follows = (auth()->user()) ? auth()->user()->following->contains($id) : false; 
         return collect([
            'user' => User::find($id),
-            'profile' => User::find($id)->profile
+            'profile' => User::find($id)->profile,
         ]);
 
     }

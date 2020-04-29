@@ -34,6 +34,10 @@ class User extends Authenticatable
         return $this->hasOne(Profile::class);
     }
 
+    public function following() {
+        return $this->belongsToMany(Profile::class);
+    }
+
     /**
      * The attributes that should be cast to native types.
      *

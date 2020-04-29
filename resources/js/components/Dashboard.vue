@@ -24,11 +24,11 @@
 import Sidebar from "./partials/Sidebar";
 export default {
   created: function() {
-    window.user_id = +this.user;
+    window.user_id = +this.userid;
   },
 
   props: {
-    user: {
+    userid: {
       type: String,
       required: true
     }

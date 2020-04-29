@@ -5,37 +5,42 @@
       <form action="/tweet" method="POST" enctype="multipart/form-data">
         <div class="row1">
           <div class="dp">
-            <a :href="linking(profile.profileImg)">
+            <router-link :to="{ name: 'profile', params: {userId:user.id} }">
               <img :src="linking(profile.profileImg, '10.jpg')" alt="dp" />
-            </a>
+            </router-link>
           </div>
-          <input type="text" placeholder="What's happening?" v-model="tweet" />
+          <input type="text" placeholder="What's happening?" v-model="tweetWrite" />
         </div>
         <div class="row2 mt-2">
           <label for="tweetImage">
             <i class="fa fa-image"></i>
           </label>
           <input type="file" id="tweetImage" />
-          <button class="btn btn-primary" :disabled="tweet.length < 1">Tweet</button>
+          <button class="btn btn-primary" :disabled="tweetWrite.length < 1">Tweet</button>
         </div>
       </form>
     </div>
     <div class="contour"></div>
-    <div v-for="tweet in tweets" :key="tweet.id" class="tweetBox border-bottom">
+    <a href></a>
+    <div v-for="tweet in tweets" :key="tweet.tweet.id" class="tweetBox border-bottom">
       <div class="row">
         <div class="col-md-2">
           <div class="profilepic">
-            <img src="../../images/twitterLogo.png" alt />
+            <router-link :to="{ name: 'profile', params: {userId: tweet.user.id || 1} }">
+              <img :src="linking(tweet.profile.profileImg, '10.jpg')" alt />
+            </router-link>
           </div>
         </div>
         <div class="col-md-10">
           <div class="tweet">
             <div>
-              <span class="mr-3 name">{{tweet.name}}</span>
-              <span class="username">@{{tweet.username}}</span>
+              <span class="mr-3 name">{{typeof tweet.user === 'string' ? 'Name' : tweet.user.name}}</span>
+              <span
+                class="username"
+              >@{{typeof tweet.user === 'string' || tweet.user.username === null ? 'username' : tweet.user.username}}</span>
             </div>
-            <div class="title mb-1 w-100">{{tweet.title}}</div>
-            <div class="content w-100">{{ tweet.content }}</div>
+            <div class="title mb-1 w-100">{{tweet.tweet.title || 'Tweet Title'}}</div>
+            <div class="content w-100">{{ tweet.tweet.content || 'Tweet Content'}}</div>
           </div>
         </div>
       </div>
@@ -51,10 +56,10 @@ export default {
   },
   data() {
     return {
-      tweets: [],
+      tweets: {},
       user: {},
       profile: {},
-      tweet: ""
+      tweetWrite: ""
     };
   },
   methods: {
@@ -85,6 +90,9 @@ export default {
       } else {
         return "http://localhost:8000/images/" + image;
       }
+    },
+    link(url) {
+      return "http://localhost:8000/" + url;
     }
   }
 };
@@ -181,6 +189,7 @@ export default {
       border-radius: 50%;
       img {
         width: 100%;
+        height: 100%;
         border-radius: 50%;
       }
     }

@@ -12,8 +12,11 @@
       </div>
     </div>
 
-    <div class="text-right mt-4 mr-3">
+    <div v-if="authId === id" class="text-right mt-4 mr-3">
       <a :href="link('profile/edit')" class="editprofile">Edit Profile</a>
+    </div>
+    <div v-else class="mt-4 mr-3 text-right">
+      <button @click="follow()" class="btn btn-primary">follow</button>
     </div>
     <div class="details">
       <div class="name">{{ user.name }}</div>
@@ -68,25 +71,36 @@
 export default {
   created: function() {
     this.getProfile();
-    // console.log();
   },
   data() {
     return {
       user: {},
       profile: {},
-      tab: ""
+      tab: "",
+      id: this.$route.params.userId,
+      authId: window.user_id
     };
   },
   methods: {
     getProfile() {
       axios
-        .get(`http://localhost:8000/api/profile/${window.user_id}`)
+        .get(`http://localhost:8000/api/profile/${this.id}`)
         .then(response => {
           this.user = response.data.user;
           this.profile = response.data.profile;
         })
         .catch(error => {
           console.log(error);
+        });
+    },
+    follow() {
+      axios
+        .post(`http://localhost:8000/follow/${this.id}`)
+        .then(response => {
+          console.log(response.data);
+        })
+        .catch(err => {
+          console.log(err.status);
         });
     },
     activeTab(tab) {
@@ -196,6 +210,7 @@ export default {
       color: #1da1f2;
       background-color: white;
       text-align: center;
+      cursor: pointer;
       &:hover {
         background-color: #d2e4f0;
       }

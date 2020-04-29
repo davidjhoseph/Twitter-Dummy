@@ -99,7 +99,7 @@
         </div>
       </div>
     </router-link>
-    <router-link :to="{ name: 'profile' }" tag="div">
+    <router-link :to="{ name: 'profile', params: {userId:id} }" tag="div">
       <div class="profile tab">
         <div
           class="contentHolder"
@@ -141,7 +141,8 @@
 export default {
   data() {
     return {
-      tab: "home"
+      tab: "home",
+      id: window.user_id
     };
   },
   methods: {

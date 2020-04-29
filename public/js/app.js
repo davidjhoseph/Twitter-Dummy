@@ -1979,10 +1979,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
-    window.user_id = +this.user;
+    window.user_id = +this.userid;
   },
   props: {
-    user: {
+    userid: {
       type: String,
       required: true
     }
@@ -2456,7 +2456,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      tab: "home"
+      tab: "home",
+      id: window.user_id
     };
   },
   methods: {
@@ -2558,14 +2559,15 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      tweets: {}
+      tweets: {},
+      id: this.$route.params.userId
     };
   },
   methods: {
     getTweets: function getTweets() {
       var _this = this;
 
-      axios.get("http://localhost:8000/tweets/user/".concat(window.user_id)).then(function (response) {
+      axios.get("http://localhost:8000/tweets/user/".concat(this.id)).then(function (response) {
         _this.tweets = response.data;
       })["catch"](function (err) {
         console.log(err);
@@ -2630,6 +2632,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
     this.getTweets();
@@ -2637,10 +2644,10 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      tweets: [],
+      tweets: {},
       user: {},
       profile: {},
-      tweet: ""
+      tweetWrite: ""
     };
   },
   methods: {
@@ -2669,6 +2676,9 @@ __webpack_require__.r(__webpack_exports__);
       } else {
         return "http://localhost:8000/images/" + image;
       }
+    },
+    link: function link(url) {
+      return "http://localhost:8000/" + url;
     }
   }
 });
@@ -2767,26 +2777,38 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
-    this.getProfile(); // console.log();
+    this.getProfile();
   },
   data: function data() {
     return {
       user: {},
       profile: {},
-      tab: ""
+      tab: "",
+      id: this.$route.params.userId,
+      authId: window.user_id
     };
   },
   methods: {
     getProfile: function getProfile() {
       var _this = this;
 
-      axios.get("http://localhost:8000/api/profile/".concat(window.user_id)).then(function (response) {
+      axios.get("http://localhost:8000/api/profile/".concat(this.id)).then(function (response) {
         _this.user = response.data.user;
         _this.profile = response.data.profile;
       })["catch"](function (error) {
         console.log(error);
+      });
+    },
+    follow: function follow() {
+      axios.post("http://localhost:8000/follow/".concat(this.id)).then(function (response) {
+        console.log(response.data);
+      })["catch"](function (err) {
+        console.log(err.status);
       });
     },
     activeTab: function activeTab(tab) {
@@ -7540,7 +7562,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".home[data-v-65ae5e9d] {\n  width: 100%;\n  border-right: 1px solid lightgray;\n  border-left: 1px solid lightgray;\n}\n.home .heading[data-v-65ae5e9d] {\n  font-size: 20px;\n  font-weight: bold;\n  color: black;\n  width: inherit;\n  height: 50px;\n  padding: 10px 10px;\n  width: 28.25%;\n  background-color: white;\n  z-index: 999999999;\n  position: fixed;\n  top: 0;\n}\n.home .tweetWrite[data-v-65ae5e9d] {\n  padding-top: 60px;\n  padding-bottom: 10px;\n}\n.home .tweetWrite .row1[data-v-65ae5e9d] {\n  display: flex;\n  align-items: center;\n  padding: 0 10px;\n}\n.home .tweetWrite .row1 .dp[data-v-65ae5e9d] {\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n}\n.home .tweetWrite .row1 .dp img[data-v-65ae5e9d] {\n  width: 100%;\n  height: 100%;\n  border-radius: 50%;\n}\n.home .tweetWrite .row1 input[data-v-65ae5e9d] {\n  font-size: 20px;\n  margin-left: 10px;\n  border: none;\n  width: 80%;\n}\n.home .tweetWrite .row1 input[data-v-65ae5e9d]:focus {\n  outline: none;\n}\n.home .tweetWrite .row1 input[data-v-65ae5e9d]::-webkit-input-placeholder {\n  color: lightgray;\n}\n.home .tweetWrite .row1 input[data-v-65ae5e9d]::-moz-placeholder {\n  color: lightgray;\n}\n.home .tweetWrite .row1 input[data-v-65ae5e9d]:-ms-input-placeholder {\n  color: lightgray;\n}\n.home .tweetWrite .row1 input[data-v-65ae5e9d]::-ms-input-placeholder {\n  color: lightgray;\n}\n.home .tweetWrite .row1 input[data-v-65ae5e9d]::placeholder {\n  color: lightgray;\n}\n.home .tweetWrite .row2[data-v-65ae5e9d] {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 0 20px;\n}\n.home .tweetWrite .row2 input[data-v-65ae5e9d] {\n  display: none;\n}\n.home .tweetWrite .row2 label[data-v-65ae5e9d] {\n  margin-left: 60px;\n  cursor: pointer;\n}\n.home .tweetWrite .row2 label i[data-v-65ae5e9d] {\n  font-size: 23px;\n  color: #1da1f2;\n}\n.home .tweetWrite .row2 button[data-v-65ae5e9d] {\n  width: 90px;\n  font-weight: bold;\n  padding: 10px;\n  border-radius: 30px;\n}\n.home .contour[data-v-65ae5e9d] {\n  height: 10px;\n  background-color: #f0f0f0;\n}\n.home .tweetBox[data-v-65ae5e9d] {\n  padding: 10px 0;\n}\n.home .tweetBox .profilepic[data-v-65ae5e9d] {\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n}\n.home .tweetBox .profilepic img[data-v-65ae5e9d] {\n  width: 100%;\n  border-radius: 50%;\n}\n.home .tweetBox .tweet .name[data-v-65ae5e9d] {\n  font-size: 18px;\n  font-weight: bold;\n  color: black;\n}\n.home .tweetBox .tweet .username[data-v-65ae5e9d] {\n  color: gray;\n}", ""]);
+exports.push([module.i, ".home[data-v-65ae5e9d] {\n  width: 100%;\n  border-right: 1px solid lightgray;\n  border-left: 1px solid lightgray;\n}\n.home .heading[data-v-65ae5e9d] {\n  font-size: 20px;\n  font-weight: bold;\n  color: black;\n  width: inherit;\n  height: 50px;\n  padding: 10px 10px;\n  width: 28.25%;\n  background-color: white;\n  z-index: 999999999;\n  position: fixed;\n  top: 0;\n}\n.home .tweetWrite[data-v-65ae5e9d] {\n  padding-top: 60px;\n  padding-bottom: 10px;\n}\n.home .tweetWrite .row1[data-v-65ae5e9d] {\n  display: flex;\n  align-items: center;\n  padding: 0 10px;\n}\n.home .tweetWrite .row1 .dp[data-v-65ae5e9d] {\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n}\n.home .tweetWrite .row1 .dp img[data-v-65ae5e9d] {\n  width: 100%;\n  height: 100%;\n  border-radius: 50%;\n}\n.home .tweetWrite .row1 input[data-v-65ae5e9d] {\n  font-size: 20px;\n  margin-left: 10px;\n  border: none;\n  width: 80%;\n}\n.home .tweetWrite .row1 input[data-v-65ae5e9d]:focus {\n  outline: none;\n}\n.home .tweetWrite .row1 input[data-v-65ae5e9d]::-webkit-input-placeholder {\n  color: lightgray;\n}\n.home .tweetWrite .row1 input[data-v-65ae5e9d]::-moz-placeholder {\n  color: lightgray;\n}\n.home .tweetWrite .row1 input[data-v-65ae5e9d]:-ms-input-placeholder {\n  color: lightgray;\n}\n.home .tweetWrite .row1 input[data-v-65ae5e9d]::-ms-input-placeholder {\n  color: lightgray;\n}\n.home .tweetWrite .row1 input[data-v-65ae5e9d]::placeholder {\n  color: lightgray;\n}\n.home .tweetWrite .row2[data-v-65ae5e9d] {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 0 20px;\n}\n.home .tweetWrite .row2 input[data-v-65ae5e9d] {\n  display: none;\n}\n.home .tweetWrite .row2 label[data-v-65ae5e9d] {\n  margin-left: 60px;\n  cursor: pointer;\n}\n.home .tweetWrite .row2 label i[data-v-65ae5e9d] {\n  font-size: 23px;\n  color: #1da1f2;\n}\n.home .tweetWrite .row2 button[data-v-65ae5e9d] {\n  width: 90px;\n  font-weight: bold;\n  padding: 10px;\n  border-radius: 30px;\n}\n.home .contour[data-v-65ae5e9d] {\n  height: 10px;\n  background-color: #f0f0f0;\n}\n.home .tweetBox[data-v-65ae5e9d] {\n  padding: 10px 0;\n}\n.home .tweetBox .profilepic[data-v-65ae5e9d] {\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n}\n.home .tweetBox .profilepic img[data-v-65ae5e9d] {\n  width: 100%;\n  height: 100%;\n  border-radius: 50%;\n}\n.home .tweetBox .tweet .name[data-v-65ae5e9d] {\n  font-size: 18px;\n  font-weight: bold;\n  color: black;\n}\n.home .tweetBox .tweet .username[data-v-65ae5e9d] {\n  color: gray;\n}", ""]);
 
 // exports
 
@@ -7559,7 +7581,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".profile[data-v-1bf2914a] {\n  width: 100%;\n  border-right: 1px solid lightgray;\n  border-left: 1px solid lightgray;\n}\n.profile .header[data-v-1bf2914a] {\n  padding: 15px 50px;\n  font-size: 23px;\n  font-weight: bold;\n}\n.profile .editprofile[data-v-1bf2914a] {\n  padding: 15px 25px;\n  text-decoration: none;\n  border: 1px solid #1da1f2;\n  border-radius: 30px;\n  background-color: white;\n  color: #1da1f2;\n  font-weight: bold;\n}\n.profile .editprofile[data-v-1bf2914a]:hover {\n  background-color: #cbecff;\n}\n.profile .headerimg[data-v-1bf2914a] {\n  height: 200px;\n  background-color: gray;\n  position: relative;\n  background-size: cover;\n  background-position: center;\n}\n.profile .profileimg[data-v-1bf2914a] {\n  width: 150px;\n  height: 150px;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background-color: white;\n  position: absolute;\n  bottom: -35%;\n  left: 10px;\n}\n.profile .profileimg img[data-v-1bf2914a] {\n  width: 95%;\n  height: 95%;\n  border-radius: 50%;\n}\n.profile .details[data-v-1bf2914a] {\n  padding: 0 20px;\n  margin-top: 20px;\n}\n.profile .details .name[data-v-1bf2914a] {\n  font-size: 20px;\n  font-weight: bold;\n}\n.profile .details .username[data-v-1bf2914a] {\n  font-size: 18px;\n  color: gray;\n  line-height: 16px;\n}\n.profile .details .caption[data-v-1bf2914a] {\n  font-size: 18px;\n  color: black;\n}\n.profile .details .otherDetails[data-v-1bf2914a] {\n  color: gray;\n}\n.profile .details .followers[data-v-1bf2914a] {\n  color: gray;\n}\n.profile .details .followers .foll[data-v-1bf2914a] {\n  margin-right: 20px;\n}\n.profile .details .followers .foll .numberFol[data-v-1bf2914a] {\n  color: black;\n  font-weight: bolder;\n}\n.profile .tabs[data-v-1bf2914a] {\n  display: flex;\n  width: 100%;\n}\n.profile .tabs .active[data-v-1bf2914a] {\n  border-bottom: 2px solid #1da1f2;\n}\n.profile .tabs .tab[data-v-1bf2914a] {\n  padding: 15px 0;\n  width: 23%;\n  color: #1da1f2;\n  background-color: white;\n  text-align: center;\n}\n.profile .tabs .tab[data-v-1bf2914a]:hover {\n  background-color: #d2e4f0;\n}\n.profile .tabs .tabBig[data-v-1bf2914a] {\n  width: 31%;\n}", ""]);
+exports.push([module.i, ".profile[data-v-1bf2914a] {\n  width: 100%;\n  border-right: 1px solid lightgray;\n  border-left: 1px solid lightgray;\n}\n.profile .header[data-v-1bf2914a] {\n  padding: 15px 50px;\n  font-size: 23px;\n  font-weight: bold;\n}\n.profile .editprofile[data-v-1bf2914a] {\n  padding: 15px 25px;\n  text-decoration: none;\n  border: 1px solid #1da1f2;\n  border-radius: 30px;\n  background-color: white;\n  color: #1da1f2;\n  font-weight: bold;\n}\n.profile .editprofile[data-v-1bf2914a]:hover {\n  background-color: #cbecff;\n}\n.profile .headerimg[data-v-1bf2914a] {\n  height: 200px;\n  background-color: gray;\n  position: relative;\n  background-size: cover;\n  background-position: center;\n}\n.profile .profileimg[data-v-1bf2914a] {\n  width: 150px;\n  height: 150px;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background-color: white;\n  position: absolute;\n  bottom: -35%;\n  left: 10px;\n}\n.profile .profileimg img[data-v-1bf2914a] {\n  width: 95%;\n  height: 95%;\n  border-radius: 50%;\n}\n.profile .details[data-v-1bf2914a] {\n  padding: 0 20px;\n  margin-top: 20px;\n}\n.profile .details .name[data-v-1bf2914a] {\n  font-size: 20px;\n  font-weight: bold;\n}\n.profile .details .username[data-v-1bf2914a] {\n  font-size: 18px;\n  color: gray;\n  line-height: 16px;\n}\n.profile .details .caption[data-v-1bf2914a] {\n  font-size: 18px;\n  color: black;\n}\n.profile .details .otherDetails[data-v-1bf2914a] {\n  color: gray;\n}\n.profile .details .followers[data-v-1bf2914a] {\n  color: gray;\n}\n.profile .details .followers .foll[data-v-1bf2914a] {\n  margin-right: 20px;\n}\n.profile .details .followers .foll .numberFol[data-v-1bf2914a] {\n  color: black;\n  font-weight: bolder;\n}\n.profile .tabs[data-v-1bf2914a] {\n  display: flex;\n  width: 100%;\n}\n.profile .tabs .active[data-v-1bf2914a] {\n  border-bottom: 2px solid #1da1f2;\n}\n.profile .tabs .tab[data-v-1bf2914a] {\n  padding: 15px 0;\n  width: 23%;\n  color: #1da1f2;\n  background-color: white;\n  text-align: center;\n  cursor: pointer;\n}\n.profile .tabs .tab[data-v-1bf2914a]:hover {\n  background-color: #d2e4f0;\n}\n.profile .tabs .tabBig[data-v-1bf2914a] {\n  width: 31%;\n}", ""]);
 
 // exports
 
@@ -40117,31 +40139,40 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _c("router-link", { attrs: { to: { name: "profile" }, tag: "div" } }, [
-        _c("div", { staticClass: "profile tab" }, [
-          _c(
-            "div",
-            {
-              staticClass: "contentHolder",
-              class: _vm.tab === "profile" ? "active" : "",
-              on: {
-                click: function($event) {
-                  return _vm.activeTab("profile")
+      _c(
+        "router-link",
+        {
+          attrs: {
+            to: { name: "profile", params: { userId: _vm.id } },
+            tag: "div"
+          }
+        },
+        [
+          _c("div", { staticClass: "profile tab" }, [
+            _c(
+              "div",
+              {
+                staticClass: "contentHolder",
+                class: _vm.tab === "profile" ? "active" : "",
+                on: {
+                  click: function($event) {
+                    return _vm.activeTab("profile")
+                  }
                 }
-              }
-            },
-            [
-              _c("div", { staticClass: "content" }, [
-                _c("div", { staticClass: "icon mr-4" }, [
-                  _c("i", { staticClass: "fa fa-home" })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "link" }, [_vm._v("Profile")])
-              ])
-            ]
-          )
-        ])
-      ]),
+              },
+              [
+                _c("div", { staticClass: "content" }, [
+                  _c("div", { staticClass: "icon mr-4" }, [
+                    _c("i", { staticClass: "fa fa-home" })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "link" }, [_vm._v("Profile")])
+                ])
+              ]
+            )
+          ])
+        ]
+      ),
       _vm._v(" "),
       _c("router-link", { attrs: { to: { name: "more" }, tag: "div" } }, [
         _c("div", { staticClass: "more tab" }, [
@@ -40379,38 +40410,47 @@ var render = function() {
           },
           [
             _c("div", { staticClass: "row1" }, [
-              _c("div", { staticClass: "dp" }, [
-                _c(
-                  "a",
-                  { attrs: { href: _vm.linking(_vm.profile.profileImg) } },
-                  [
-                    _c("img", {
+              _c(
+                "div",
+                { staticClass: "dp" },
+                [
+                  _c(
+                    "router-link",
+                    {
                       attrs: {
-                        src: _vm.linking(_vm.profile.profileImg, "10.jpg"),
-                        alt: "dp"
+                        to: { name: "profile", params: { userId: _vm.user.id } }
                       }
-                    })
-                  ]
-                )
-              ]),
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: _vm.linking(_vm.profile.profileImg, "10.jpg"),
+                          alt: "dp"
+                        }
+                      })
+                    ]
+                  )
+                ],
+                1
+              ),
               _vm._v(" "),
               _c("input", {
                 directives: [
                   {
                     name: "model",
                     rawName: "v-model",
-                    value: _vm.tweet,
-                    expression: "tweet"
+                    value: _vm.tweetWrite,
+                    expression: "tweetWrite"
                   }
                 ],
                 attrs: { type: "text", placeholder: "What's happening?" },
-                domProps: { value: _vm.tweet },
+                domProps: { value: _vm.tweetWrite },
                 on: {
                   input: function($event) {
                     if ($event.target.composing) {
                       return
                     }
-                    _vm.tweet = $event.target.value
+                    _vm.tweetWrite = $event.target.value
                   }
                 }
               })
@@ -40425,7 +40465,7 @@ var render = function() {
                 "button",
                 {
                   staticClass: "btn btn-primary",
-                  attrs: { disabled: _vm.tweet.length < 1 }
+                  attrs: { disabled: _vm.tweetWrite.length < 1 }
                 },
                 [_vm._v("Tweet")]
               )
@@ -40436,32 +40476,78 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "contour" }),
       _vm._v(" "),
+      _c("a", { attrs: { href: "" } }),
+      _vm._v(" "),
       _vm._l(_vm.tweets, function(tweet) {
         return _c(
           "div",
-          { key: tweet.id, staticClass: "tweetBox border-bottom" },
+          { key: tweet.tweet.id, staticClass: "tweetBox border-bottom" },
           [
             _c("div", { staticClass: "row" }, [
-              _vm._m(1, true),
+              _c("div", { staticClass: "col-md-2" }, [
+                _c(
+                  "div",
+                  { staticClass: "profilepic" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        attrs: {
+                          to: {
+                            name: "profile",
+                            params: { userId: tweet.user.id || 1 }
+                          }
+                        }
+                      },
+                      [
+                        _c("img", {
+                          attrs: {
+                            src: _vm.linking(
+                              tweet.profile.profileImg,
+                              "10.jpg"
+                            ),
+                            alt: ""
+                          }
+                        })
+                      ]
+                    )
+                  ],
+                  1
+                )
+              ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-md-10" }, [
                 _c("div", { staticClass: "tweet" }, [
                   _c("div", [
                     _c("span", { staticClass: "mr-3 name" }, [
-                      _vm._v(_vm._s(tweet.name))
+                      _vm._v(
+                        _vm._s(
+                          typeof tweet.user === "string"
+                            ? "Name"
+                            : tweet.user.name
+                        )
+                      )
                     ]),
                     _vm._v(" "),
                     _c("span", { staticClass: "username" }, [
-                      _vm._v("@" + _vm._s(tweet.username))
+                      _vm._v(
+                        "@" +
+                          _vm._s(
+                            typeof tweet.user === "string" ||
+                              tweet.user.username === null
+                              ? "username"
+                              : tweet.user.username
+                          )
+                      )
                     ])
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "title mb-1 w-100" }, [
-                    _vm._v(_vm._s(tweet.title))
+                    _vm._v(_vm._s(tweet.tweet.title || "Tweet Title"))
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "content w-100" }, [
-                    _vm._v(_vm._s(tweet.content))
+                    _vm._v(_vm._s(tweet.tweet.content || "Tweet Content"))
                   ])
                 ])
               ])
@@ -40480,18 +40566,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("label", { attrs: { for: "tweetImage" } }, [
       _c("i", { staticClass: "fa fa-image" })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-2" }, [
-      _c("div", { staticClass: "profilepic" }, [
-        _c("img", {
-          attrs: { src: __webpack_require__(/*! ../../images/twitterLogo.png */ "./resources/js/images/twitterLogo.png"), alt: "" }
-        })
-      ])
     ])
   }
 ]
@@ -40564,16 +40638,31 @@ var render = function() {
       ]
     ),
     _vm._v(" "),
-    _c("div", { staticClass: "text-right mt-4 mr-3" }, [
-      _c(
-        "a",
-        {
-          staticClass: "editprofile",
-          attrs: { href: _vm.link("profile/edit") }
-        },
-        [_vm._v("Edit Profile")]
-      )
-    ]),
+    _vm.authId === _vm.id
+      ? _c("div", { staticClass: "text-right mt-4 mr-3" }, [
+          _c(
+            "a",
+            {
+              staticClass: "editprofile",
+              attrs: { href: _vm.link("profile/edit") }
+            },
+            [_vm._v("Edit Profile")]
+          )
+        ])
+      : _c("div", { staticClass: "mt-4 mr-3 text-right" }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-primary",
+              on: {
+                click: function($event) {
+                  return _vm.follow()
+                }
+              }
+            },
+            [_vm._v("follow")]
+          )
+        ]),
     _vm._v(" "),
     _c("div", { staticClass: "details" }, [
       _c("div", { staticClass: "name" }, [_vm._v(_vm._s(_vm.user.name))]),
@@ -55891,7 +55980,7 @@ var routes = [//sidebar routes
   component: More,
   name: "more"
 }, {
-  path: "/profile",
+  path: "/profile/:userId",
   component: Profile,
   name: "profile",
   children: [{

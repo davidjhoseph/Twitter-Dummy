@@ -25,6 +25,9 @@ Route::post('register', 'RegisterController@store');
 Route::get('profile/edit', 'ProfileController@edit');
 Route::patch('profile/update/{id}', 'ProfileController@update');
 Route::get('tweets/user/{id}', 'TweetController@show');
+Route::post('follow/{user}', 'FollowController@follow');
+
+
 
 
 
