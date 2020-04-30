@@ -12,14 +12,15 @@ class TweetController extends Controller
         $data = [];
      foreach(auth()->user()->following->pluck('pivot.profile_id') as $profileId) {
          $profile = Profile::find($profileId);
-         $friend = collect([
-            'user' => $profile->user ?? 'user does not exist',
-            'profile' => $profile ?? 'no profile for this user',
-            'tweet' => $profile->user->tweets
-         ]);
-            
-         $data[] = $friend;
-     } ;
+         foreach($profile->user->tweets as $tweet){
+             $friend = collect([
+                'user' => $tweet->user ?? 'user does not exist',
+                'profile' => $tweet->user->profile ?? 'no profile for this user',
+                'tweet' => $tweet
+             ]);
+             $data[] = $friend;
+         };
+     };
      return $data;
     }
     public function show($id) {
@@ -30,5 +31,5 @@ class TweetController extends Controller
     //         $profile = Profile::find($profileId);
     //         echo $profile->user->tweets;
     //     };
-    }
+    // }
 }
