@@ -10,9 +10,10 @@ class TweetController extends Controller
 {
     public function index() {
         $data = [];
-     foreach(auth()->user()->following->pluck('pivot.profile_id') as $profileId) {
+        $ids =  [...auth()->user()->following->pluck('pivot.profile_id'),auth()->user()->id];
+     foreach( $ids as $profileId) {
          $profile = Profile::find($profileId);
-         foreach($profile->user->tweets as $tweet){
+         foreach($profile->user->tweets  as $tweet){
              $friend = collect([
                 'user' => $tweet->user ?? 'user does not exist',
                 'profile' => $tweet->user->profile ?? 'no profile for this user',
@@ -27,9 +28,20 @@ class TweetController extends Controller
         return Tweets::where('user_id', $id)->orderBy('id', 'desc')->get();
     }
     // public function test() {
-    //     foreach(auth()->user()->following->pluck('pivot.profile_id') as $profileId){
+    //     $data = [];
+    //     $ids =  [...auth()->user()->following->pluck('pivot.profile_id'),auth()->user()->id];
+    //     foreach( $ids as $profileId) {
     //         $profile = Profile::find($profileId);
-    //         echo $profile->user->tweets;
+    //         $tweets = $profile->user->tweets->orderBy('id', 'desc');
+    //         foreach($profile->user->tweets  as $tweet){
+    //             $friend = collect([
+    //                'user' => $tweet->user ?? 'user does not exist',
+    //                'profile' => $tweet->user->profile ?? 'no profile for this user',
+    //                'tweet' => $tweet
+    //             ]);
+    //             $data[] = $friend;
+    //         };
     //     };
+    //     return $data;
     // }
 }
