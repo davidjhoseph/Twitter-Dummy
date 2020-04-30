@@ -4,17 +4,18 @@ namespace App\Http\Controllers;
 
 
 use Illuminate\Http\Request;
-use App\{User, Tweets};
+use App\{User, Tweets, Profile};
 
 class TweetController extends Controller
 {
     public function index() {
         $data = [];
-     foreach(Tweets::orderBy('created_at', 'desc')->get() as $tweet) {
+     foreach(auth()->user()->following->pluck('pivot.profile_id') as $profileId) {
+         $profile = Profile::find($profileId);
          $friend = collect([
-            'user' => $tweet->user ?? 'user does not exist',
-            'profile' => $tweet->user->profile ?? 'no profile for this user',
-            'tweet' => $tweet
+            'user' => $profile->user ?? 'user does not exist',
+            'profile' => $profile ?? 'no profile for this user',
+            'tweet' => $profile->user->tweets
          ]);
             
          $data[] = $friend;
@@ -25,16 +26,9 @@ class TweetController extends Controller
         return Tweets::where('user_id', $id)->orderBy('id', 'desc')->get();
     }
     // public function test() {
-    //     $data = [];
-    //     foreach(Tweets::orderBy('created_at', 'desc')->get() as $tweet) {
-    //         $friend = collect([
-    //             'user' => $tweet->user,
-    //             'profile' => $tweet->user->profile ?? 'no profile for this user',
-    //             'tweet' => $tweet
-    //          ]);
-               
-    //        $data[] = $friend;
-    //     } ;
-    //     return $data;
-    // }
+    //     foreach(auth()->user()->following->pluck('pivot.profile_id') as $profileId){
+    //         $profile = Profile::find($profileId);
+    //         echo $profile->user->tweets;
+    //     };
+    }
 }
