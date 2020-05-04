@@ -13,7 +13,11 @@
           </div>
         </div>
         <div class="col-3 mt-2">
-          <div class="trending">Trending things</div>
+          <div class="trending">
+            <form action="/logout" method="post">
+              <button class="btn btn-primary">Logout</button>
+            </form>
+          </div>
         </div>
       </div>
     </div>

@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="{{ url('css/app.css') }}">
     </head>
     <body>
-        <div id="app">
+        <div id="app" class="mb-5">
         @yield('content')
         </div>
         <script src="{{ asset('js/app.js') }}"></script>

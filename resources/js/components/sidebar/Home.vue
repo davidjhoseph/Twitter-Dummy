@@ -2,20 +2,20 @@
   <div class="home">
     <div class="heading border-bottom">Home</div>
     <div class="tweetWrite">
-      <form action="/tweet" method="POST" enctype="multipart/form-data">
+      <form action="tweet" method="POST" enctype="multipart/form-data">
         <div class="row1">
           <div class="dp">
             <router-link :to="{ name: 'profile', params: {userId:user.id} }">
               <img :src="linking(profile.profileImg, '8.jpg')" alt="dp" />
             </router-link>
           </div>
-          <input type="text" placeholder="What's happening?" v-model="tweetWrite" />
+          <input type="text" name="content" placeholder="What's happening?" v-model="tweetWrite" />
         </div>
         <div class="row2 mt-2">
           <label for="tweetImage">
-            <i class="fa fa-image"></i>
+            <i class="fa fa-image">pic</i>
           </label>
-          <input type="file" id="tweetImage" />
+          <input type="file" id="tweetImage" name="file" />
           <button class="btn btn-primary" :disabled="tweetWrite.length < 1">Tweet</button>
         </div>
       </form>
@@ -40,6 +40,9 @@
               >@{{typeof tweet.user === 'string' || tweet.user.username === null ? 'username' : tweet.user.username}}</span>
             </div>
             <div class="content w-100">{{ tweet.tweet.content || 'Tweet Content'}}</div>
+            <div>
+              <img :src="linking(tweet.tweet.file, '10.jpg')" alt />
+            </div>
           </div>
         </div>
       </div>
@@ -201,6 +204,9 @@ export default {
       }
       .username {
         color: gray;
+      }
+      img {
+        width: 80%;
       }
     }
   }

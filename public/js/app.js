@@ -1976,6 +1976,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
@@ -2586,6 +2590,9 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
 //
 //
 //
@@ -7574,7 +7581,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".home[data-v-65ae5e9d] {\n  width: 100%;\n  border-right: 1px solid lightgray;\n  border-left: 1px solid lightgray;\n}\n.home .heading[data-v-65ae5e9d] {\n  font-size: 20px;\n  font-weight: bold;\n  color: black;\n  width: inherit;\n  height: 50px;\n  padding: 10px 10px;\n  width: 28.25%;\n  background-color: white;\n  z-index: 999999999;\n  position: fixed;\n  top: 0;\n}\n.home .tweetWrite[data-v-65ae5e9d] {\n  padding-top: 60px;\n  padding-bottom: 10px;\n}\n.home .tweetWrite .row1[data-v-65ae5e9d] {\n  display: flex;\n  align-items: center;\n  padding: 0 10px;\n}\n.home .tweetWrite .row1 .dp[data-v-65ae5e9d] {\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n}\n.home .tweetWrite .row1 .dp img[data-v-65ae5e9d] {\n  width: 100%;\n  height: 100%;\n  border-radius: 50%;\n}\n.home .tweetWrite .row1 input[data-v-65ae5e9d] {\n  font-size: 20px;\n  margin-left: 10px;\n  border: none;\n  width: 80%;\n}\n.home .tweetWrite .row1 input[data-v-65ae5e9d]:focus {\n  outline: none;\n}\n.home .tweetWrite .row1 input[data-v-65ae5e9d]::-webkit-input-placeholder {\n  color: lightgray;\n}\n.home .tweetWrite .row1 input[data-v-65ae5e9d]::-moz-placeholder {\n  color: lightgray;\n}\n.home .tweetWrite .row1 input[data-v-65ae5e9d]:-ms-input-placeholder {\n  color: lightgray;\n}\n.home .tweetWrite .row1 input[data-v-65ae5e9d]::-ms-input-placeholder {\n  color: lightgray;\n}\n.home .tweetWrite .row1 input[data-v-65ae5e9d]::placeholder {\n  color: lightgray;\n}\n.home .tweetWrite .row2[data-v-65ae5e9d] {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 0 20px;\n}\n.home .tweetWrite .row2 input[data-v-65ae5e9d] {\n  display: none;\n}\n.home .tweetWrite .row2 label[data-v-65ae5e9d] {\n  margin-left: 60px;\n  cursor: pointer;\n}\n.home .tweetWrite .row2 label i[data-v-65ae5e9d] {\n  font-size: 23px;\n  color: #1da1f2;\n}\n.home .tweetWrite .row2 button[data-v-65ae5e9d] {\n  width: 90px;\n  font-weight: bold;\n  padding: 10px;\n  border-radius: 30px;\n}\n.home .contour[data-v-65ae5e9d] {\n  height: 10px;\n  background-color: #f0f0f0;\n}\n.home .tweetBox[data-v-65ae5e9d] {\n  padding: 10px 0;\n}\n.home .tweetBox .profilepic[data-v-65ae5e9d] {\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n}\n.home .tweetBox .profilepic img[data-v-65ae5e9d] {\n  width: 100%;\n  height: 100%;\n  border-radius: 50%;\n}\n.home .tweetBox .tweet .name[data-v-65ae5e9d] {\n  font-size: 18px;\n  font-weight: bold;\n  color: black;\n}\n.home .tweetBox .tweet .username[data-v-65ae5e9d] {\n  color: gray;\n}", ""]);
+exports.push([module.i, ".home[data-v-65ae5e9d] {\n  width: 100%;\n  border-right: 1px solid lightgray;\n  border-left: 1px solid lightgray;\n}\n.home .heading[data-v-65ae5e9d] {\n  font-size: 20px;\n  font-weight: bold;\n  color: black;\n  width: inherit;\n  height: 50px;\n  padding: 10px 10px;\n  width: 28.25%;\n  background-color: white;\n  z-index: 999999999;\n  position: fixed;\n  top: 0;\n}\n.home .tweetWrite[data-v-65ae5e9d] {\n  padding-top: 60px;\n  padding-bottom: 10px;\n}\n.home .tweetWrite .row1[data-v-65ae5e9d] {\n  display: flex;\n  align-items: center;\n  padding: 0 10px;\n}\n.home .tweetWrite .row1 .dp[data-v-65ae5e9d] {\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n}\n.home .tweetWrite .row1 .dp img[data-v-65ae5e9d] {\n  width: 100%;\n  height: 100%;\n  border-radius: 50%;\n}\n.home .tweetWrite .row1 input[data-v-65ae5e9d] {\n  font-size: 20px;\n  margin-left: 10px;\n  border: none;\n  width: 80%;\n}\n.home .tweetWrite .row1 input[data-v-65ae5e9d]:focus {\n  outline: none;\n}\n.home .tweetWrite .row1 input[data-v-65ae5e9d]::-webkit-input-placeholder {\n  color: lightgray;\n}\n.home .tweetWrite .row1 input[data-v-65ae5e9d]::-moz-placeholder {\n  color: lightgray;\n}\n.home .tweetWrite .row1 input[data-v-65ae5e9d]:-ms-input-placeholder {\n  color: lightgray;\n}\n.home .tweetWrite .row1 input[data-v-65ae5e9d]::-ms-input-placeholder {\n  color: lightgray;\n}\n.home .tweetWrite .row1 input[data-v-65ae5e9d]::placeholder {\n  color: lightgray;\n}\n.home .tweetWrite .row2[data-v-65ae5e9d] {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 0 20px;\n}\n.home .tweetWrite .row2 input[data-v-65ae5e9d] {\n  display: none;\n}\n.home .tweetWrite .row2 label[data-v-65ae5e9d] {\n  margin-left: 60px;\n  cursor: pointer;\n}\n.home .tweetWrite .row2 label i[data-v-65ae5e9d] {\n  font-size: 23px;\n  color: #1da1f2;\n}\n.home .tweetWrite .row2 button[data-v-65ae5e9d] {\n  width: 90px;\n  font-weight: bold;\n  padding: 10px;\n  border-radius: 30px;\n}\n.home .contour[data-v-65ae5e9d] {\n  height: 10px;\n  background-color: #f0f0f0;\n}\n.home .tweetBox[data-v-65ae5e9d] {\n  padding: 10px 0;\n}\n.home .tweetBox .profilepic[data-v-65ae5e9d] {\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n}\n.home .tweetBox .profilepic img[data-v-65ae5e9d] {\n  width: 100%;\n  height: 100%;\n  border-radius: 50%;\n}\n.home .tweetBox .tweet .name[data-v-65ae5e9d] {\n  font-size: 18px;\n  font-weight: bold;\n  color: black;\n}\n.home .tweetBox .tweet .username[data-v-65ae5e9d] {\n  color: gray;\n}\n.home .tweetBox .tweet img[data-v-65ae5e9d] {\n  width: 80%;\n}", ""]);
 
 // exports
 
@@ -39508,7 +39515,11 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-3 mt-2" }, [
-      _c("div", { staticClass: "trending" }, [_vm._v("Trending things")])
+      _c("div", { staticClass: "trending" }, [
+        _c("form", { attrs: { action: "/logout", method: "post" } }, [
+          _c("button", { staticClass: "btn btn-primary" }, [_vm._v("Logout")])
+        ])
+      ])
     ])
   }
 ]
@@ -40411,7 +40422,7 @@ var render = function() {
           "form",
           {
             attrs: {
-              action: "/tweet",
+              action: "tweet",
               method: "POST",
               enctype: "multipart/form-data"
             }
@@ -40451,7 +40462,11 @@ var render = function() {
                     expression: "tweetWrite"
                   }
                 ],
-                attrs: { type: "text", placeholder: "What's happening?" },
+                attrs: {
+                  type: "text",
+                  name: "content",
+                  placeholder: "What's happening?"
+                },
                 domProps: { value: _vm.tweetWrite },
                 on: {
                   input: function($event) {
@@ -40467,7 +40482,9 @@ var render = function() {
             _c("div", { staticClass: "row2 mt-2" }, [
               _vm._m(0),
               _vm._v(" "),
-              _c("input", { attrs: { type: "file", id: "tweetImage" } }),
+              _c("input", {
+                attrs: { type: "file", id: "tweetImage", name: "file" }
+              }),
               _vm._v(" "),
               _c(
                 "button",
@@ -40549,6 +40566,15 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "content w-100" }, [
                     _vm._v(_vm._s(tweet.tweet.content || "Tweet Content"))
+                  ]),
+                  _vm._v(" "),
+                  _c("div", [
+                    _c("img", {
+                      attrs: {
+                        src: _vm.linking(tweet.tweet.file, "10.jpg"),
+                        alt: ""
+                      }
+                    })
                   ])
                 ])
               ])
@@ -40566,7 +40592,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("label", { attrs: { for: "tweetImage" } }, [
-      _c("i", { staticClass: "fa fa-image" })
+      _c("i", { staticClass: "fa fa-image" }, [_vm._v("pic")])
     ])
   }
 ]
