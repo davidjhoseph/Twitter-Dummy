@@ -39516,7 +39516,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-3 mt-2" }, [
       _c("div", { staticClass: "trending" }, [
-        _c("form", { attrs: { action: "/logout", method: "post" } }, [
+        _c("form", { attrs: { action: "logout", method: "get" } }, [
           _c("button", { staticClass: "btn btn-primary" }, [_vm._v("Logout")])
         ])
       ])

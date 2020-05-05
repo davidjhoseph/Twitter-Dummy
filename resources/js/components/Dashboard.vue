@@ -14,7 +14,7 @@
         </div>
         <div class="col-3 mt-2">
           <div class="trending">
-            <form action="/logout" method="post">
+            <form action="logout" method="get">
               <button class="btn btn-primary">Logout</button>
             </form>
           </div>
