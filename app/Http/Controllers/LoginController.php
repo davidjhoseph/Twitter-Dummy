@@ -61,10 +61,10 @@ class LoginController extends Controller
                     return redirect()->intended('dashboard');
                     // return Auth::user();
                 }else {
-                    return 'User not found';
+                    return redirect()->back()->withErrors(['authError' => 'Your Credentials are not correct!']);
                 }
             }else {
-                return 'Are you sure you have signed up?';
+                return redirect()->back()->withErrors(['authError' => 'We dont think you have signed up']);
             }
         }
 

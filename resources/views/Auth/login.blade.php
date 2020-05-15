@@ -13,6 +13,11 @@
                     </div>
                     <form action="login" method="POST">
                         @csrf
+                        @if($errors->any())
+                            @foreach($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        @endif
                         <register-input  idInput="username" name="username"  title="Username, Phone or Email" type="text"></register-input>
                         <register-input  idinput="pass" name="password"  title="Password" type="password" ></register-input>
                         <div class="text-center">
